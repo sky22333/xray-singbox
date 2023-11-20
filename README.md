@@ -27,6 +27,9 @@ sudo systemctl restart xray
 ```
 
 
+###  查看xray运行状态
+
+
 ```
 sudo systemctl status xray
 ```
