@@ -63,5 +63,5 @@ https://xtls.github.io/config/
 
 https://xtls.github.io/document/install.html#windows-%E5%AE%89%E8%A3%85%E6%96%B9%E5%BC%8F
 
-###  感谢xray团队的贡献，让我们能更方便的获取知识
+#####  感谢xray团队的贡献，让我们能更方便的获取知识
 ---
