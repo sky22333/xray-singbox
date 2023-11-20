@@ -41,3 +41,20 @@ sudo systemctl status xray
 /var/log/xray/access.log
 /var/log/xray/error.log
 ```
+
+
+###  指定配置文件运行
+
+```
+xray run [-c config.json] [-confdir dir]
+```
+
+
+###  更多配置模板
+
+https://github.com/XTLS/Xray-examples
+
+
+###  官方文档
+
+https://xtls.github.io/config/
