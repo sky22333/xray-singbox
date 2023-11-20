@@ -1,6 +1,6 @@
 # xray配置模板
 
-###  安装xray
+###  安装xray-core
 
 ```
 bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install
@@ -13,21 +13,21 @@ bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release
 bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install --beta
 ```
 
-###  xray配置文件
+###  xray配置文件路径
 
 ```
 /usr/local/etc/xray/*.json
 ```
 
 
-###  xray重启
+###  xray重新运行
 
 ```
 sudo systemctl restart xray
 ```
 
 
-###  查看xray运行状态
+###  xray运行状态
 
 
 ```
@@ -35,7 +35,7 @@ sudo systemctl status xray
 ```
 
 
-###  xray日志
+###  xray日志路径
 
 ```
 /var/log/xray/access.log
