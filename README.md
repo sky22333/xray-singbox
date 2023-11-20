@@ -13,10 +13,10 @@ bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release
 bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install --beta
 ```
 
-###  xray配置文件路径
+###  xray配置文件路径（.json）
 
 ```
-/usr/local/etc/xray/*.json
+/usr/local/etc/xray
 ```
 
 
