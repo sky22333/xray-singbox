@@ -58,3 +58,10 @@ https://github.com/XTLS/Xray-examples
 ###  官方文档
 
 https://xtls.github.io/config/
+
+### 安装文档
+
+https://xtls.github.io/document/install.html#windows-%E5%AE%89%E8%A3%85%E6%96%B9%E5%BC%8F
+
+
+---
