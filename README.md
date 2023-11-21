@@ -68,7 +68,7 @@ docker run -d -p 9000:9000 --name xray --restart=always -v /etc/xray:/etc/xray t
 ---
 
 
-###  Liunx安装xray-core
+#  Liunx安装xray-core
 
 ```
 bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install
