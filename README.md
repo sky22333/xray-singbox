@@ -61,7 +61,7 @@ docker run -d -p 9000:9000 --name xray --restart=always -v /etc/xray:/etc/xray t
 </details>
 
 
-
+---
 
 
 ###  Liunx安装xray-core
