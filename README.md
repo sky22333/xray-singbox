@@ -1,6 +1,70 @@
 # xray配置模板
 
-###  安装xray-core
+
+<details>
+<summary>Docker部署xray</summary>
+
+
+###  一键安装docker
+
+```
+curl -fsSL https://get.docker.com | sh
+```
+
+###  拉取镜像
+
+```
+docker pull teddysun/xray
+```
+
+
+###  创建配置文件目录
+
+```
+mkdir -p /etc/xray
+```
+
+
+###  创建json文件并写入配置
+
+```
+cat > /etc/xray/config.json <<EOF
+{
+  "inbounds": [{
+    "port": 9000,
+    "protocol": "vmess",
+    "settings": {
+      "clients": [
+        {
+          "id": "1eb6e917-774b-4a84-aff6-b058577c60a5"
+        }
+      ]
+    }
+  }],
+  "outbounds": [{
+    "protocol": "freedom",
+    "settings": {}
+  }]
+}
+EOF
+```
+
+
+###  监听对应端口运行
+
+```
+docker run -d -p 9000:9000 --name xray --restart=always -v /etc/xray:/etc/xray teddysun/xray
+```
+
+
+
+</details>
+
+
+
+
+
+###  Liunx安装xray-core
 
 ```
 bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install
