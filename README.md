@@ -11,7 +11,7 @@
 curl -fsSL https://get.docker.com | sh
 ```
 
-###  拉取镜像
+###  拉取xray镜像
 
 ```
 docker pull teddysun/xray
