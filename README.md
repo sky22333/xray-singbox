@@ -19,6 +19,12 @@ bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release
 /usr/local/etc/xray
 ```
 
+###  直接写入xray配置
+
+```
+echo '//配置文件' > /usr/local/etc/xray/config.json
+```
+
 
 ###  xray重新运行
 
