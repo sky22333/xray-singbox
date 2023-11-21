@@ -22,7 +22,7 @@
             {
                 "type": "field",
                 "outboundTag": "direct",
-                "protocol": ["bypass", "freedom", "sk5"],
+                "protocol": ["sk5"],
                 "settings": {
                     "domainStrategy": "IPIfNonMatch"
                 }
@@ -51,10 +51,6 @@
         }
     ],
     "outbounds": [
-        {
-            "protocol": "freedom",
-            "tag": "direct"
-        },
         {
             "protocol": "blackhole",
             "tag": "block"
