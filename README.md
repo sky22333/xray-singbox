@@ -1,4 +1,4 @@
-# xray配置模板
+# xray配置
 
 
 <details>
