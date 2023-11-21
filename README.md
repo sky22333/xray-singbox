@@ -25,7 +25,7 @@ mkdir -p /etc/xray
 ```
 
 
-###  创建json文件并写入配置
+###  创建json文件并写入节点配置
 
 ```
 cat > /etc/xray/config.json <<EOF
