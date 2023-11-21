@@ -18,6 +18,14 @@
                     "geosite:cn"
                 ],
                 "outboundTag": "block"
+            },
+            {
+                "type": "field",
+                "outboundTag": "direct",
+                "protocol": ["bypass", "freedom", "sk5"],
+                "settings": {
+                    "domainStrategy": "IPIfNonMatch"
+                }
             }
         ]
     },
@@ -53,8 +61,22 @@
         },
         {
             "protocol": "sk5",
-            "settings": {},
-            "tag": "sk5-out"
+            "tag": "direct",
+            "settings": {
+                "servers": [
+                    {
+                        "address": "139.24.45.2",
+                        "port": 2333
+                    }
+                ],
+                "accounts": [
+                    {
+                        "user": "qweasfasf",
+                        "pass": "efsdfkgfak"
+                    }
+                ]
+            }
         }
+        // 可以添加其他出站配置...
     ]
 }
