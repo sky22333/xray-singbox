@@ -22,7 +22,7 @@ bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release
 ###  直接写入xray配置
 
 ```
-echo '//配置文件' > /usr/local/etc/xray/config.json
+echo '//xray配置' > /usr/local/etc/xray/config.json
 ```
 
 
