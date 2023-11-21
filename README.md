@@ -50,7 +50,7 @@ EOF
 ```
 
 
-###  监听对应端口运行
+###  监听对应端口并运行
 
 ```
 docker run -d -p 9000:9000 --name xray --restart=always -v /etc/xray:/etc/xray teddysun/xray
