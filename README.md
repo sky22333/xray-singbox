@@ -128,16 +128,12 @@ xray run [-c config.json] [-confdir dir]
 
 ```
 
-# mozilla
 addons.mozilla.org
-
-# aws
 s0.awsstatic.com
 d1.awsstatic.com
 images-na.ssl-images-amazon.com
 m.media-amazon.com
 
-# 其他
 player.live-video.net
 one-piece.com
 lol.secure.dyn.riotcdn.net
