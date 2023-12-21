@@ -127,18 +127,8 @@ xray run [-c config.json] [-confdir dir]
 ###  Reality域名推荐列表
 
 ```
-# Apple
-gateway.icloud.com
-itunes.apple.com
-swdist.apple.com
-swcdn.apple.com
-updates.cdn-apple.com
-mensura.cdn-apple.com
-osxapps.itunes.apple.com
-aod.itunes.apple.com
 
 # mozilla
-download-installer.cdn.mozilla.net
 addons.mozilla.org
 
 # aws
@@ -155,13 +145,10 @@ www.lovelive-anime.jp
 www.swift.com
 academy.nvidia.com
 www.cisco.com
-www.asus.com
-www.samsung.com
-www.amd.com
 cdn-dynmedia-1.microsoft.com
 update.microsoft
-software.download.prss.microsoft.com
-
+www.tesla.com
+www.cloudflare.com
 
 ```
 ---
