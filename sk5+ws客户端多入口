@@ -1,0 +1,90 @@
+{
+  "inbounds": [
+    {
+      "tag": "socks1",
+      "port": 10811,
+      "listen": "0.0.0.0",
+      "protocol": "socks",
+      "settings": {
+        "auth": "noauth",
+        "udp": true
+      }
+    },
+    {
+      "tag": "socks2",
+      "port": 10812,
+      "listen": "0.0.0.0",
+      "protocol": "socks",
+      "settings": {
+        "auth": "noauth",
+        "udp": true
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "proxy1",
+      "protocol": "vmess",
+      "settings": {
+        "vnext": [
+          {
+            "address": "21.40.102.50",
+            "port": 51176,
+            "users": [
+              {
+                "id": "00c49895-c822-415b-a877-5ca31faca5",
+                "alterId": 0,
+                "security": "auto"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "wsSettings": {
+          "path": "/khfseh"
+        }
+      }
+    },
+    {
+      "tag": "proxy2",
+      "protocol": "vmess",
+      "settings": {
+        "vnext": [
+          {
+            "address": "21.40.102.80",
+            "port": 51176,
+            "users": [
+              {
+                "id": "00c49895-c822-415b-a877-5ca31faca5",
+                "alterId": 0,
+                "security": "auto"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "wsSettings": {
+          "path": "/khfseh"
+        }
+      }
+    }
+  ],
+  "routing": {
+    "rules": [
+      {
+        "type": "field",
+        "inboundTag": ["socks1"],
+        "outboundTag": "proxy1"
+      },
+      {
+        "type": "field",
+        "inboundTag": ["socks2"],
+        "outboundTag": "proxy2"
+      }
+    ]
+  }
+}
