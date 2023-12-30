@@ -133,6 +133,7 @@ xray run [-c config.json] [-confdir dir]
 ----
 下载```Xray-linux-64.zip```文件
 
+先```cd /usr/local/bin```
 ####  2. 解压文件
 解压下载的文件到```/usr/local/bin```目录：
 ```
@@ -162,7 +163,10 @@ sudo nano /usr/local/etc/xray/config.json
 ####  5. 运行 Xray
 运行 Xray 以确保一切正常：
 ```
-sudo xray -c /usr/local/etc/xray/config.json
+cd /usr/local/etc/xray
+```
+```
+xray -c /usr/local/etc/xray/config.json
 ```
 ####  6. 设置为系统服务（可选）
 为了使 Xray 在启动时自动运行，您可以创建一个 systemd 服务文件。
