@@ -157,7 +157,7 @@ sudo nano /usr/local/etc/xray/config.json
 在编辑器中，输入您的 Xray 配置。您可以在v2rayN客户端中导出所选服务器为客户端配置，然后复制粘贴进去
 并且添加socks用户验证：
 ```
- "settings": {
+      "settings": {
         "auth": "password",  // 更改为密码认证
         "accounts": [        // 添加账户信息
           {
