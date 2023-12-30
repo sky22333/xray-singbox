@@ -134,7 +134,7 @@ xray run [-c config.json] [-confdir dir]
 下载```Xray-linux-64.zip```文件
 
 ####  2. 解压文件
-解压下载的文件到 /usr/local/bin 或其他您希望存放二进制文件的目录：
+解压下载的文件到```/usr/local/bin```目录：
 ```
 sudo unzip Xray-linux-64.zip -d /usr/local/bin
 ```
