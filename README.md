@@ -154,7 +154,20 @@ sudo mkdir -p /usr/local/etc/xray
 ```
 sudo nano /usr/local/etc/xray/config.json
 ```
-在编辑器中，输入您的 Xray 配置。您可以在 Xray-core 的官方文档中找到配置样例。
+在编辑器中，输入您的 Xray 配置。您可以在v2rayN客户端中导出所选服务器为客户端配置，然后复制粘贴进去
+并且添加socks用户验证：
+```
+ "settings": {
+        "auth": "password",  // 更改为密码认证
+        "accounts": [        // 添加账户信息
+          {
+            "user": "your-username",  // 用户名
+            "pass": "your-password"   // 密码
+          }
+        ],
+        "udp": true,
+        "allowTransparent": false
+```
 
 ####  5. 运行 Xray
 运行 Xray 以确保一切正常：
