@@ -1,33 +1,33 @@
 {
   "inbounds": [
     {
-      "port": 9528,
+      "port": 9528,  // sk5入站端口
       "protocol": "socks",
       "settings": {
         "auth": "password",
         "accounts": [
           {
-            "user": "admin456",
-            "pass": "admin789"
+            "user": "admin456",  // sk5用户名
+            "pass": "admin789"  // sk5密码
           }
         ],
         "udp": true,
         "address": "0.0.0.0"
       },
-      "tag": "socks-in"  // 添加的入站标签
+      "tag": "socks-in"  // 入站标签
     }
   ],
   "outbounds": [
     {
-      "protocol": "vmess",
+      "protocol": "vmess",  // 出站协议
       "settings": {
         "vnext": [
           {
-            "address": "324.14.23.53",
-            "port": 443,
+            "address": "324.14.23.53",  // 出站地址
+            "port": 443,  // 出站端口
             "users": [
               {
-                "id": "264cb27a-8595-4b92-bce9-d0f6d81b200a",
+                "id": "264cb27a-8595-4b92-bce9-d0f6d81b200a",  // 出站UUID
                 "alterId": 0,
                 "security": "auto"
               }
@@ -39,14 +39,14 @@
         "network": "ws",
         "security": "tls",
         "tlsSettings": {
-          "serverName": "asc.cloudfront.net",
+          "serverName": "asc.cloudfront.net",  // 出站伪装域名
           "allowInsecure": false
         },
         "wsSettings": {
-          "path": "/dockerlnpm"
+          "path": "/dockerlnpm"  // 出站路径
         }
       },
-      "tag": "vmess-out"  // 添加的出站标签
+      "tag": "vmess-out"  // 出站标签
     }
   ],
   "routing": {
