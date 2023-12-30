@@ -1,33 +1,37 @@
 {
+  "log": {
+    "loglevel": "warning"
+  },
   "inbounds": [
     {
-      "port": 9528,  // sk5入站端口
+      "tag": "socks",
+      "port": 10888,
+      "listen": "0.0.0.0",
       "protocol": "socks",
       "settings": {
         "auth": "password",
         "accounts": [
           {
-            "user": "admin456",  // sk5用户名
-            "pass": "admin789"  // sk5密码
+            "user": "admin",
+            "pass": "admin"
           }
         ],
-        "udp": true,
-        "address": "0.0.0.0"
-      },
-      "tag": "socks-in"  // 入站标签
+        "udp": true
+      }
     }
   ],
   "outbounds": [
     {
-      "protocol": "vmess",  // 出站协议
+      "tag": "proxy",
+      "protocol": "vmess",
       "settings": {
         "vnext": [
           {
-            "address": "324.14.23.53",  // 出站地址
-            "port": 443,  // 出站端口
+            "address": "13.32.54.75",  //出站地址
+            "port": 443,  //出站端口
             "users": [
               {
-                "id": "264cb27a-8595-4b92-bce9-d0f6d81b200a",  // 出站UUID
+                "id": "fc972360-fe3c-436e-e2b3-58e6d45feab2",  //出站UUID
                 "alterId": 0,
                 "security": "auto"
               }
@@ -37,25 +41,18 @@
       },
       "streamSettings": {
         "network": "ws",
-        "security": "tls",
+        "security": "tls",  //TLS加密
         "tlsSettings": {
-          "serverName": "asc.cloudfront.net",  // 出站伪装域名
-          "allowInsecure": false
+          "allowInsecure": false,
+          "serverName": "cloudfront.net"  //伪装域名
         },
         "wsSettings": {
-          "path": "/dockerlnpm"  // 出站路径
+          "path": "/ghjkndri",  //ws路径
+          "headers": {
+            "Host": "cloudfront.net"  //伪装域名
+          }
         }
-      },
-      "tag": "vmess-out"  // 出站标签
-    }
-  ],
-  "routing": {
-    "rules": [
-      {
-        "type": "field",
-        "inboundTag": ["socks-in"],
-        "outboundTag": "vmess-out"
       }
-    ]
-  }
+    }
+  ]
 }
