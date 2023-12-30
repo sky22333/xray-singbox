@@ -2,25 +2,6 @@
     "log": {
         "loglevel": "warning"
     },
-    "routing": {
-        "domainStrategy": "IPIfNonMatch",
-        "rules": [
-            {
-                "type": "field",
-                "ip": [
-                    "geoip:private"
-                ],
-                "outboundTag": "block"
-            },
-            {
-                "type": "field",
-                "domain": [
-                    "geosite:cn"
-                ],
-                "outboundTag": "block"
-            }
-        ]
-    },
     "inbounds": [
         {
             "listen": "0.0.0.0",
@@ -46,10 +27,6 @@
         {
             "protocol": "freedom",
             "tag": "direct"
-        },
-        {
-            "protocol": "blackhole",
-            "tag": "block"
         }
     ]
 }
