@@ -126,12 +126,10 @@ xray run [-c config.json] [-confdir dir]
 #  手动安装xray
 
 
-手动安装 Xray以Ubuntu系统为例：
+###  手动安装 Xray以Ubuntu系统为例：
 
-####  1. 下载 Xray-core
-
-
-#######  访问 Xray-core 的 GitHub 发布页面  https://github.com/XTLS/Xray-core/releases
+######  1. 下载 Xray-core
+访问 Xray-core 的 GitHub 发布页面  https://github.com/XTLS/Xray-core/releases
 ----
 下载```Xray-linux-64.zip```文件
 
