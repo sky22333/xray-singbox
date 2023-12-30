@@ -123,7 +123,7 @@ sudo systemctl status xray
 xray run [-c config.json] [-confdir dir]
 ```
 ---
-##  手动安装xray
+#  手动安装xray
 
 
 手动安装 Xray-core 在 Ubuntu 系统上通常涉及下载二进制文件、配置服务，并创建配置文件。以下是一般步骤：
