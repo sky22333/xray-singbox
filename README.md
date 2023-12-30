@@ -122,6 +122,76 @@ sudo systemctl status xray
 ```
 xray run [-c config.json] [-confdir dir]
 ```
+---
+###  手动安装xray
+
+
+手动安装 Xray-core 在 Ubuntu 系统上通常涉及下载二进制文件、配置服务，并创建配置文件。以下是一般步骤：
+
+1. 下载 Xray-core
+访问 Xray-core 的 GitHub 发布页面（https://github.com/XTLS/Xray-core/releases）以找到最新版本。
+
+2. 解压文件
+解压下载的文件到 /usr/local/bin 或其他您希望存放二进制文件的目录：
+```
+sudo unzip Xray-linux-64.zip -d /usr/local/bin
+```
+确保 /usr/local/bin 在您的 PATH 环境变量中。
+
+3. 赋予执行权限
+赋予 Xray 可执行文件执行权限：
+```
+sudo chmod +x /usr/local/bin/xray
+```
+4. 创建配置文件
+Xray 需要一个配置文件才能运行。通常，这个文件位于 /usr/local/etc/xray/config.json。
+```
+sudo mkdir -p /usr/local/etc/xray
+```
+创建一个新的 config.json 文件并编辑它。您可以使用任何文本编辑器：
+```
+sudo nano /usr/local/etc/xray/config.json
+```
+在编辑器中，输入您的 Xray 配置。您可以在 Xray-core 的官方文档中找到配置样例。
+
+5. 运行 Xray
+运行 Xray 以确保一切正常：
+```
+sudo xray -c /usr/local/etc/xray/config.json
+```
+6. 设置为系统服务（可选）
+为了使 Xray 在启动时自动运行，您可以创建一个 systemd 服务文件。
+
+创建一个新的 systemd 服务文件：
+```
+sudo nano /etc/systemd/system/xray.service
+```
+在文件中添加以下内容（您可能需要根据您的安装调整路径）：
+
+```
+[Unit]
+Description=Xray Service
+After=network.target
+
+[Service]
+User=nobody
+ExecStart=/usr/local/bin/xray -c /usr/local/etc/xray/config.json
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+```
+启用并启动服务：
+```
+sudo systemctl enable xray
+```
+```
+sudo systemctl start xray
+```
+检查服务状态：
+```
+sudo systemctl status xray
+```
 
 ---
 ###  Reality域名推荐列表
