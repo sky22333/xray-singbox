@@ -133,9 +133,13 @@ xray run [-c config.json] [-confdir dir]
 ----
 下载```Xray-linux-64.zip```文件
 
-先```cd /usr/local/bin```
+
 ####  2. 解压文件
 解压下载的文件到```/usr/local/bin```目录：
+
+```
+cd /usr/local/bin
+```
 ```
 sudo unzip Xray-linux-64.zip -d /usr/local/bin
 ```
