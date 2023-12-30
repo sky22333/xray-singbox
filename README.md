@@ -159,11 +159,11 @@ sudo nano /usr/local/etc/xray/config.json
 并且添加socks用户验证(修改入站的"settings"部分)：
 ```
       "settings": {
-        "auth": "password",  // 更改为密码认证
-        "accounts": [        // 添加账户信息
+        "auth": "password",
+        "accounts": [
           {
-            "user": "your-username",  // 用户名
-            "pass": "your-password"   // 密码
+            "user": "用户名",
+            "pass": "密码"
           }
         ],
         "udp": true,
