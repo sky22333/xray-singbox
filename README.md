@@ -130,7 +130,8 @@ xray run [-c config.json] [-confdir dir]
 
 1. 下载 Xray-core
 访问 Xray-core 的 GitHub 发布页面  https://github.com/XTLS/Xray-core/releases
-下载Xray-linux-64.zip文件
+----
+下载```Xray-linux-64.zip```文件
 
 3. 解压文件
 解压下载的文件到 /usr/local/bin 或其他您希望存放二进制文件的目录：
