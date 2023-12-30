@@ -27,11 +27,11 @@
       "settings": {
         "vnext": [
           {
-            "address": "13.32.54.75",  //出站地址
+            "address": "12.52.54.65",  //出站地址
             "port": 443,  //出站端口
             "users": [
               {
-                "id": "fc972360-fe3c-436e-e2b3-58e6d45feab2",  //出站UUID
+                "id": "fc972360-f33c-436e-e2b3-58e6d55fead2",  //出站UUID
                 "alterId": 0,
                 "security": "auto"
               }
