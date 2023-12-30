@@ -39,7 +39,7 @@
         "security": "tls",
         "tlsSettings": {
           "serverName": "asc.cloudfront.net",  //伪装域名
-          "allowInsecure": true
+          "allowInsecure": false
         },
         "wsSettings": {
           "path": "/dockerlnpm"  //路径
