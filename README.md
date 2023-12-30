@@ -205,6 +205,11 @@ sudo systemctl start xray
 ```
 sudo systemctl status xray
 ```
+重启：
+```
+sudo systemctl restart xray
+```
+
 ---
 ---
 ---
