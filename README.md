@@ -159,20 +159,6 @@ sudo nano /usr/local/etc/xray/config.json
 您可以在v2rayN客户端中导出所选服务器客户端配置，然后复制粘贴进去
 
 
-并且添加socks用户验证(修改入站的"settings"部分)：
-```
-      "settings": {
-        "auth": "password",
-        "accounts": [
-          {
-            "user": "用户名",
-            "pass": "密码"
-          }
-        ],
-        "udp": true,
-        "allowTransparent": false
-```
-
 ####  5. 运行 Xray
 运行 Xray 以确保一切正常：
 ```
