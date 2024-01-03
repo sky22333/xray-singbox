@@ -75,12 +75,6 @@ bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release
 ```
 
 
-####  安装 Xray-core 并将其升级到预发行版本
-
-```
-bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install --beta
-```
-
 ####  xray配置文件路径（.json）
 
 ```
