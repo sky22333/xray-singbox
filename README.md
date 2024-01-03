@@ -75,33 +75,33 @@ bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release
 ```
 
 
-###  安装 Xray-core 并将其升级到预发行版本
+####  安装 Xray-core 并将其升级到预发行版本
 
 ```
 bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install --beta
 ```
 
-###  xray配置文件路径（.json）
+####  xray配置文件路径（.json）
 
 ```
 /usr/local/etc/xray
 ```
 
-###  直接写入xray配置
+####  直接写入xray配置
 
 ```
 echo 'xray节点配置' > /usr/local/etc/xray/config.json
 ```
 
 
-###  xray重新运行
+####  xray重新运行
 
 ```
 sudo systemctl restart xray
 ```
 
 
-###  xray运行状态
+####  xray运行状态
 
 
 ```
@@ -109,7 +109,7 @@ sudo systemctl status xray
 ```
 
 
-###  xray日志路径
+####  xray日志路径
 
 ```
 /var/log/xray/access.log
@@ -117,7 +117,7 @@ sudo systemctl status xray
 ```
 
 
-###  指定配置文件运行
+####  指定配置文件运行
 
 ```
 xray run [-c config.json] [-confdir dir]
