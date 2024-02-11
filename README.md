@@ -5,57 +5,56 @@
 <summary>Docker部署xray</summary>
 
 
-###  一键安装docker
+### docker运行xray
 
+创建配置文件`/etc/xray/config.json`
+
+配置文件示例：
 ```
-curl -fsSL https://get.docker.com | sh
-```
-
-###  拉取xray镜像
-
-```
-docker pull teddysun/xray
-```
-
-
-###  创建配置文件目录
-
-```
-mkdir -p /etc/xray
-```
-
-
-###  创建json文件并写入节点配置
-
-```
-cat > /etc/xray/config.json <<EOF
 {
-  "inbounds": [{
-    "port": 9000,
-    "protocol": "vmess",
-    "settings": {
-      "clients": [
+    "log": {
+        "loglevel": "warning"
+    },
+    "inbounds": [
         {
-          "id": "1eb6e917-774b-4a84-aff6-b058577c60a5"
+            "listen": "0.0.0.0",
+            "port": 8080,
+            "protocol": "vmess",
+            "settings": {
+                "clients": [
+                    {
+                        "id": "d6fe7c7e-dc2d-4339-aadc-e15e4d1a97d8"
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "ws",
+                "security": "none",
+                "wsSettings": {
+                    "path": "/dockerlnmp"
+                }
+            }
         }
-      ]
-    }
-  }],
-  "outbounds": [{
-    "protocol": "freedom",
-    "settings": {}
-  }]
+    ],
+    "outbounds": [
+        {
+            "protocol": "freedom",
+            "tag": "direct"
+        }
+    ]
 }
-EOF
 ```
 
-
-###  监听对应端口并运行
+运行：
 
 ```
-docker run -d -p 9000:9000 --name xray --restart=always -v /etc/xray:/etc/xray teddysun/xray
+docker run -d -p 8080:8080 --name xray --restart=always -v /etc/xray:/etc/xray teddysun/xray
 ```
 
+这里的端口要与配置文件里的入站端口相同
+
+---
+---
 
 
 </details>
