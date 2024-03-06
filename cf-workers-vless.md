@@ -1,3 +1,8 @@
+#### Workers和Pages——创建`Worker`——部署——编辑代码——放入代码并替换UUID——保存并部署——浏览器输入`域名/uuid`查看配置
+
+
+
+```
 import { connect } from 'cloudflare:sockets';
 
 // How to generate your own UUID:
@@ -815,3 +820,4 @@ function getVLESSConfig(userID, hostName) {
   `;
 	}
   }
+```
