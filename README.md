@@ -80,12 +80,6 @@ bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release
 /usr/local/etc/xray
 ```
 
-####  直接写入xray配置
-
-```
-echo 'xray节点配置' > /usr/local/etc/xray/config.json
-```
-
 
 ####  xray重新运行
 
@@ -109,12 +103,6 @@ sudo systemctl status xray
 /var/log/xray/error.log
 ```
 
-
-####  指定配置文件运行
-
-```
-xray run [-c config.json] [-confdir dir]
-```
 ---
 
 [电脑运行客户端方法](https://xtls.github.io/document/level-0/ch08-xray-clients.html#_8-3-%E9%99%84%E5%8A%A0%E9%A2%98-1-%E5%9C%A8-pc-%E7%AB%AF%E6%89%8B%E5%B7%A5%E9%85%8D%E7%BD%AE-xray-core "PC端电脑运行xray客户端方法")
@@ -161,14 +149,7 @@ sudo nano /usr/local/etc/xray/config.json
 
 
 ####  5. 运行 Xray
-运行 Xray 以确保一切正常：
-```
-cd /usr/local/etc/xray
-```
-```
-xray -c /usr/local/etc/xray/config.json
-```
-####  6. 设置为系统服务（可选）
+
 为了使 Xray 在启动时自动运行，您可以创建一个 systemd 服务文件。
 
 创建一个新的 systemd 服务文件：
