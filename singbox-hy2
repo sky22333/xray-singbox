@@ -1,0 +1,29 @@
+{
+    "inbounds": [
+        {
+            "type": "hysteria2",
+            "listen": "::",
+            "listen_port": 443, // 端口
+            "up_mbps": 100, // 服务器上行带宽
+            "down_mbps": 20, // 服务器下行带宽
+            "users": [
+                {
+                    "password": "连接密码"
+                }
+            ],
+            "tls": {
+                "enabled": true,
+                "alpn": [
+                    "h3"
+                ],
+                "certificate_path": "/root/fullchain.cer",
+                "key_path": "/root/private.key"
+            }
+        }
+    ],
+    "outbounds": [
+        {
+            "type": "direct"
+        }
+    ]
+}
