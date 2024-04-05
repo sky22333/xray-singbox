@@ -228,3 +228,49 @@ https://xtls.github.io/config/
 https://xtls.github.io/document/install.html#windows-%E5%AE%89%E8%A3%85%E6%96%B9%E5%BC%8F
 
 ---
+
+## sing-box
+
+#### Dokcer安装
+```
+docker run -d \
+  -v /etc/sing-box:/etc/sing-box/ \
+  --name=sing-box \
+  --restart=always \
+  ghcr.io/sagernet/sing-box \
+  -D /var/lib/sing-box \
+  -C /etc/sing-box/ run
+```
+
+#### 脚本安装
+```
+bash <(curl -fsSL https://sing-box.app/deb-install.sh)
+```
+
+#### apt包安装
+```
+sudo curl -fsSL https://deb.sagernet.org/gpg.key -o /etc/apt/keyrings/sagernet.asc
+sudo chmod a+r /etc/apt/keyrings/sagernet.asc
+echo "deb [arch=`dpkg --print-architecture` signed-by=/etc/apt/keyrings/sagernet.asc] https://deb.sagernet.org/ * *" | \
+  sudo tee /etc/apt/sources.list.d/sagernet.list > /dev/null
+sudo apt-get update
+sudo apt-get install sing-box
+```
+
+#### 命令
+```
+启用	     systemctl enable sing-box
+禁用	     systemctl disable sing-box
+启动	     systemctl start sing-box
+停止	     systemctl stop sing-box
+强行停止	     systemctl kill sing-box
+重新启动	     systemctl restart sing-box
+查看日志	     journalctl -u sing-box --output cat -e
+实时日志	     journalctl -u sing-box --output cat -f
+```
+
+##### [配置文件示例](https://github.com/chika0801/sing-box-examples)   
+
+##### [快速部署示例](https://lala.im/8949.html)
+
+##### [官方文档](https://sing-box.sagernet.org/zh/configuration/)
