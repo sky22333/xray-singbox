@@ -263,6 +263,7 @@ sudo apt-get install sing-box
 
 #### 命令
 ```
+配置文件      /etc/sing-box/config.json
 启用	     systemctl enable sing-box
 禁用	     systemctl disable sing-box
 启动	     systemctl start sing-box
