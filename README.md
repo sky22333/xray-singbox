@@ -227,5 +227,4 @@ https://xtls.github.io/config/
 
 https://xtls.github.io/document/install.html#windows-%E5%AE%89%E8%A3%85%E6%96%B9%E5%BC%8F
 
-#####  感谢xray团队为科学上网做出的贡献
 ---
