@@ -81,7 +81,7 @@ bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release
 ```
 
 
-####  xray重新运行
+####  xray重启运行
 
 ```
 sudo systemctl restart xray
