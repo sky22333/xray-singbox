@@ -1,0 +1,61 @@
+{
+  "log": {
+    "level": "info"
+  },
+  "dns": {
+    "servers": [
+      {
+        "address": "tls://8.8.8.8",
+        "strategy": "ipv4_only"
+      }
+    ]
+  },
+  "inbounds": [
+    {
+      "type": "vless",
+      "tag": "vless-in",
+      "listen": "::",
+      "listen_port": 443,
+      "sniff": true,
+      "users": [
+        {
+          "name": "imlala",
+          "uuid": "57f12945-8219-4460-992f-3d3cd1e08612", // sing-box generate uuid
+          "flow": "xtls-rprx-vision"
+        }
+      ],
+      "tls": {
+        "enabled": true,
+        "server_name": "www.python.org",
+        "reality": {
+          "enabled": true,
+          "handshake": {
+            "server": "www.python.org",
+            "server_port": 443
+          },
+          "private_key": "8I-y81DD78_hXKiid6RosnSSVh-DmqQrMe2VkVtIXHE", // sing-box generate reality-keypair
+          "short_id": [
+            "6e1a647f0311592a" // sing-box generate rand --hex 8
+          ]
+        }
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "direct"
+    },
+    {
+      "type": "dns",
+      "tag": "dns-out"
+    }
+  ],
+  "route": {
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "dns-out"
+      }
+    ]
+  }
+}
