@@ -263,14 +263,16 @@ sudo apt-get install sing-box
 
 #### 命令
 ```
-配置文件      /etc/sing-box/config.json
-启动	     systemctl start sing-box
-停止	     systemctl stop sing-box
-强行停止	     systemctl kill sing-box
-开机自启	     systemctl enable sing-box
-重新启动	     systemctl restart sing-box
-查看日志	     journalctl -u sing-box --output cat -e
-实时日志	     journalctl -u sing-box --output cat -f
+配置文件              /etc/sing-box/config.json
+启动	             systemctl start sing-box
+停止	             systemctl stop sing-box
+强行停止	             systemctl kill sing-box
+开机自启	             systemctl enable sing-box
+重新启动	             systemctl restart sing-box
+查看日志	             journalctl -u sing-box --output cat -e
+实时日志	             journalctl -u sing-box --output cat -f
+生成uuid             sing-box generate uuid
+生成reality-key      sing-box generate reality-keypair
 ```
 
 ##### [配置文件示例](https://github.com/chika0801/sing-box-examples)   
