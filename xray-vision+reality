@@ -10,7 +10,7 @@
             "settings": {
                 "clients": [
                     {
-                        "id": "7400d1f4-dfb3-476c-8ee7-441d1396ea08", // xray uuid生成
+                        "id": "7400d1f4-dfb3-476c-8ee7-441d1396ea08", // 执行xray uuid生成
                         "flow": "xtls-rprx-vision"
                     }
                 ],
@@ -25,9 +25,9 @@
                         "www.lovelive-anime.jp",
                         "lovelive-anime.jp"
                     ],
-                    "privateKey": "2OQ-0gh5l1T_3NM1D1JduJkfaCltAHVjFACpfw-9Aks",  // xray x25519生成
+                    "privateKey": "2OQ-0gh5l1T_3NM1D1JduJkfaCltAHVjFACpfw-9Aks",  // 执行xray x25519生成
                     "shortIds": [ 
-                        "1b99f77ce8b762f8" // openssl rand -hex 8生成
+                        "1b99f77ce8b762f8" // 执行openssl rand -hex 8生成
                     ]
                 }
             },
