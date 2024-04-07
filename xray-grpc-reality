@@ -1,0 +1,66 @@
+{
+    "log": {
+        "loglevel": "warning"
+    },
+    "routing": {
+        "rules": [
+            {
+                "port": "443",
+                "network": "udp",
+                "outboundTag": "block"
+            }
+        ]
+    },
+    "inbounds": [
+        {
+            "listen": "0.0.0.0",
+            "port": 443,
+            "protocol": "vless",
+            "settings": {
+                "clients": [
+                    {
+                        "id": "chika" // 执行 xray uuid 生成
+                    }
+                ],
+                "decryption": "none"
+            },
+            "streamSettings": {
+                "network": "grpc",
+                "security": "reality",
+                "realitySettings": {
+                    "dest": "www.lovelive-anime.jp:443",
+                    "serverNames": [
+                        "www.lovelive-anime.jp",
+                        "lovelive-anime.jp"
+                    ],
+                    "privateKey": "2KZ4uouMKgI8nR-LDJNP1_MHisCJOmKGj9jUjZLncVU", // 执行 xray x25519 生成，填 "Private key" 的值
+                    "shortIds": [ // 执行 openssl rand -hex 1到8 生成
+                        "6ba85179e30d4fc2",
+                        "b9"
+                    ]
+                },
+                "grpcSettings": {
+                    "serviceName": "lovelive" // 若起始为斜杠时为自定义 path，至少要两个斜杠，例如在服务端填写 "/lovelive/sif/chika|riko"，客户端可填写 "/lovelive/sif/chika" 或 "/lovelive/sif/riko"，客户端填写 "/lovelive/sif" 将连接失败
+                }
+            },
+            "sniffing": {
+                "enabled": true,
+                "destOverride": [
+                    "http",
+                    "tls",
+                    "quic"
+                ]
+            }
+        }
+    ],
+    "outbounds": [
+        {
+            "protocol": "freedom",
+            "tag": "direct"
+        },
+        {
+            "protocol": "blackhole",
+            "tag": "block"
+        }
+    ]
+}
