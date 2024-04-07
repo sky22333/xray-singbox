@@ -1,0 +1,54 @@
+{
+    "log": {
+        "loglevel": "warning"
+    },
+    "inbounds": [
+        {
+            "listen": "0.0.0.0",
+            "port": 443,
+            "protocol": "vless",
+            "settings": {
+                "clients": [
+                    {
+                        "id": "7400d1f4-dfb3-476c-8ee7-441d1396ea08", // xray uuid生成
+                        "flow": "xtls-rprx-vision"
+                    }
+                ],
+                "decryption": "none"
+            },
+            "streamSettings": {
+                "network": "tcp",
+                "security": "reality",
+                "realitySettings": {
+                    "dest": "www.lovelive-anime.jp:443", 
+                    "serverNames": [ 
+                        "www.lovelive-anime.jp",
+                        "lovelive-anime.jp"
+                    ],
+                    "privateKey": "2OQ-0gh5l1T_3NM1D1JduJkfaCltAHVjFACpfw-9Aks",  // xray x25519生成
+                    "shortIds": [ 
+                        "1b99f77ce8b762f8" // openssl rand -hex 8生成
+                    ]
+                }
+            },
+            "sniffing": {
+                "enabled": true,
+                "destOverride": [
+                    "http",
+                    "tls",
+                    "quic"
+                ]
+            }
+        }
+    ],
+    "outbounds": [
+        {
+            "protocol": "freedom",
+            "tag": "direct"
+        },
+        {
+            "protocol": "blackhole",
+            "tag": "block"
+        }
+    ]
+}
