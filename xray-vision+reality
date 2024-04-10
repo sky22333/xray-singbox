@@ -10,7 +10,7 @@
             "settings": {
                 "clients": [
                     {
-                        "id": "7400d1f4-dfb3-476c-8ee7-441d1396ea08", // 执行xray uuid生成
+                        "id": "a16892ea-61f2-421e-8e4f-608daa0ea4c3", // 执行 xray uuid 生成
                         "flow": "xtls-rprx-vision"
                     }
                 ],
@@ -20,14 +20,15 @@
                 "network": "tcp",
                 "security": "reality",
                 "realitySettings": {
-                    "dest": "www.lovelive-anime.jp:443", 
-                    "serverNames": [ 
-                        "www.lovelive-anime.jp",
-                        "lovelive-anime.jp"
+                    "dest": "lovelive-anime.jp:443",
+                    "serverNames": [
+                        "lovelive-anime.jp",
+                        "www.lovelive-anime.jp"
                     ],
-                    "privateKey": "2OQ-0gh5l1T_3NM1D1JduJkfaCltAHVjFACpfw-9Aks",  // 执行xray x25519生成
-                    "shortIds": [ 
-                        "1b99f77ce8b762f8" // 执行openssl rand -hex 8生成
+                    "privateKey": "2KZ4uouMKgI8nR-LDJNP1_MHisCJOmKGj9jUjZLncVU", // 执行 xray x25519 生成，填Private key的值
+                    "shortIds": [
+                        "6ba85179e30d4fc2", // 执行 openssl rand -hex 8 生成
+                        "b9"
                     ]
                 }
             },
