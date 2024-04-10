@@ -51,7 +51,6 @@
 docker run -d --network host --name xray --restart=always -v /etc/xray:/etc/xray teddysun/xray
 ```
 
-这里的端口要与配置文件里的入站端口相同
 
 ---
 ---
