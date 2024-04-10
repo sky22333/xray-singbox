@@ -20,10 +20,10 @@
                 "network": "tcp",
                 "security": "reality",
                 "realitySettings": {
-                    "dest": "lovelive-anime.jp:443",
+                    "dest": "www.lovelive-anime.jp:443",
                     "serverNames": [
-                        "lovelive-anime.jp",
-                        "www.lovelive-anime.jp"
+                        "www.lovelive-anime.jp",
+                        "lovelive-anime.jp"
                     ],
                     "privateKey": "2KZ4uouMKgI8nR-LDJNP1_MHisCJOmKGj9jUjZLncVU", // 执行 xray x25519 生成，填Private key的值
                     "shortIds": [
