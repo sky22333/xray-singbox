@@ -2,11 +2,11 @@
     "inbounds": [
         {
             "type": "vless",
-            "listen": "::",
+            "listen": "0.0.0.0",
             "listen_port": 443,
             "users": [
                 {
-                    "uuid": "57f12945-8219-4460-992f-3d3cd1e08612"  // 执行 xray uuid 生成
+                    "uuid": "542d8272-e795-4d15-8507-83a432813e22"  // 执行sing-box generate uuid生成
                 }
             ],
             "tls": {
@@ -18,9 +18,9 @@
                         "server": "www.lovelive-anime.jp", // 偷的域名
                         "server_port": 443
                     },
-                    "private_key": "2KZ4uouMKgI8nR-LDJNP1_MHisCJOmKGj9jUjZLncVU", // // 执行 sing-box generate reality-keypair 生成，填Private key的值，客户端填public key的值
+                    "private_key": "wFGFSx-bnVbw6Z2AHArpVVk0dw21FBT_CzbFN9hvoW8", // // 执行 sing-box generate reality-keypair 生成，填Private key的值，客户端填public key的值
                     "short_id": [
-                        "6ba85179e30d4fc2"  // 执行 sing-box generate rand 8 --hex 生成
+                        "ccda29d7777fbb0b"  // 执行 sing-box generate rand 8 --hex 生成
                     ]
                 }
             },
