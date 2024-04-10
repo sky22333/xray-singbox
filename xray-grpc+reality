@@ -40,7 +40,7 @@
                     ]
                 },
                 "grpcSettings": {
-                    "serviceName": "misakacloud"
+                    "serviceName": "misakacloud" // grpc路径
                 }
             },
             "sniffing": {
