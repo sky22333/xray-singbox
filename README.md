@@ -237,6 +237,7 @@ docker run -d \
   -v /etc/sing-box:/etc/sing-box/ \
   --name=sing-box \
   --restart=always \
+  --network=host \
   ghcr.io/sagernet/sing-box \
   -D /var/lib/sing-box \
   -C /etc/sing-box/ run
