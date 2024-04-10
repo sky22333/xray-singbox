@@ -19,7 +19,7 @@
             "settings": {
                 "clients": [
                     {
-                        "id": "chika" // 执行 xray uuid 生成
+                        "id": "c37e1fda-da0f-4e97-b6de-e828c32ca29a" // 执行 xray uuid 生成
                     }
                 ],
                 "decryption": "none"
