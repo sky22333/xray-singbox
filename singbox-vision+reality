@@ -12,11 +12,11 @@
             ],
             "tls": {
                 "enabled": true,
-                "server_name": "www.lovelive-anime.jp", // 不支持 * 通配符
+                "server_name": "www.lovelive-anime.jp", // 要偷的域名
                 "reality": {
                     "enabled": true,
                     "handshake": {
-                        "server": "www.lovelive-anime.jp", // 要求网站支持 TLS 1.3、X25519 与 H2，域名非跳转用
+                        "server": "www.lovelive-anime.jp", // 要偷的域名
                         "server_port": 443
                     },
                     "private_key": "2KZ4uouMKgI8nR-LDJNP1_MHisCJOmKGj9jUjZLncVU", // 执行 sing-box generate reality-keypair 生成
