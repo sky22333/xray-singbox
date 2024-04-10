@@ -21,7 +21,7 @@
                     },
                     "private_key": "2KZ4uouMKgI8nR-LDJNP1_MHisCJOmKGj9jUjZLncVU", // 执行 sing-box generate reality-keypair 生成
                     "short_id": [
-                        "6ba85179e30d4fc2"
+                        "6ba85179e30d4fc2" // 执行 sing-box generate rand 8 --hex 生成
                     ]
                 }
             }
