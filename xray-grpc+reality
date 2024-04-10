@@ -33,9 +33,9 @@
                         "www.lovelive-anime.jp",
                         "lovelive-anime.jp"
                     ],
-                    "privateKey": "mIYpdfiOaD6W4F62Zt8JNEMO_hjFRzrVtmsDw-vg4kI", // 执行 xray x25519 生成，填Private key的值
+                    "privateKey": "2KZ4uouMKgI8nR-LDJNP1_MHisCJOmKGj9jUjZLncVU", // 执行 xray x25519 生成，填Private key的值
                     "shortIds": [
-                        "e2879ad2ee377dfc", // 执行 openssl rand -hex 8 生成
+                        "257163c37eaea4ef", // 执行 openssl rand -hex 8 生成
                         "b9"
                     ]
                 },
