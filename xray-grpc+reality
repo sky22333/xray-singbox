@@ -28,10 +28,10 @@
                 "network": "grpc",
                 "security": "reality",
                 "realitySettings": {
-                    "dest": "www.lovelive-anime.jp:443",
+                    "dest": "tesla.com:443",
                     "serverNames": [
-                        "www.lovelive-anime.jp",
-                        "lovelive-anime.jp"
+                        "tesla.com",
+                        "www.tesla.com"
                     ],
                     "privateKey": "2KZ4uouMKgI8nR-LDJNP1_MHisCJOmKGj9jUjZLncVU", // 执行 xray x25519 生成，填 "Private key" 的值
                     "shortIds": [
