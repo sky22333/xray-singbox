@@ -1,4 +1,4 @@
-# xray与sing-box教程
+# xray与sing-box
 
 
 
