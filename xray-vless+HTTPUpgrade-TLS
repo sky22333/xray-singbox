@@ -27,7 +27,7 @@
             "streamSettings": {
                 "network": "httpupgrade", // WS升级版，适合套CDN或开TLS
                 "httpupgradeSettings": {
-                    "path": "/misakacloud"
+                    "path": "/misakacloud?ed=2560"
                 }
             },
             "sniffing": {
