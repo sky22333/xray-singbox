@@ -70,8 +70,8 @@ sudo systemctl status xray
 
 [电脑运行客户端方法](https://xtls.github.io/document/level-0/ch08-xray-clients.html#_8-3-%E9%99%84%E5%8A%A0%E9%A2%98-1-%E5%9C%A8-pc-%E7%AB%AF%E6%89%8B%E5%B7%A5%E9%85%8D%E7%BD%AE-xray-core "PC端电脑运行xray客户端方法")
 
-#  手动安装xray
-
+<details>
+<summary>手动安装xray</summary>
 
 ###  手动安装 Xray以Ubuntu系统为例：
 
@@ -149,6 +149,8 @@ sudo systemctl status xray
 ```
 sudo systemctl restart xray
 ```
+
+</details>
 
 ---
 ---
