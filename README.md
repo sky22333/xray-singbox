@@ -23,8 +23,7 @@ bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release
 ```
 
 
-####  xray配置文件路径（.json）
-
+####  xray配置文件路径
 ```
 /usr/local/etc/xray
 ```
