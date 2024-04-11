@@ -1,9 +1,6 @@
 # xray配置
 
 
-<details>
-<summary>Docker部署xray</summary>
-
 
 ### docker运行xray
 
@@ -17,20 +14,9 @@ docker run -d --network host --name xray --restart=always -v /etc/xray:/etc/xray
 
 
 ---
----
 
 
-</details>
-
-
----
-
----
-
----
-
-
-#  Liunx安装xray-core
+#### 脚本安装xray-core
 
 ```
 bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install
