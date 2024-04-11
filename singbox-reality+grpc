@@ -11,11 +11,11 @@
             ],
             "tls": {
                 "enabled": true,
-                "server_name": "www.lovelive-anime.jp", // 偷的域名
+                "server_name": "www.lovelive-anime.jp", // 要偷的域名
                 "reality": {
                     "enabled": true,
                     "handshake": {
-                        "server": "www.lovelive-anime.jp", // 偷的域名
+                        "server": "www.lovelive-anime.jp", // 要偷的域名
                         "server_port": 443
                     },
                     "private_key": "wFGFSx-bnVbw6Z2AHArpVVk0dw21FBT_CzbFN9hvoW8", // // 执行 sing-box generate reality-keypair 生成，填Private key的值，客户端填public key的值
