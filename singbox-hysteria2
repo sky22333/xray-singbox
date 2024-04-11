@@ -1,0 +1,58 @@
+{
+  "log": {
+    "level": "info"
+  },
+  "dns": {
+    "servers": [
+      {
+        "address": "tls://8.8.8.8",
+        "strategy": "ipv4_only"
+      }
+    ]
+  },
+  "inbounds": [
+    {
+      "type": "hysteria2",
+      "listen": "::",
+      "listen_port": 8080,
+      "sniff": true,
+      "up_mbps": 300, // 服务器上行带宽
+      "down_mbps": 300, // 服务器下行带宽
+      "users": [
+        {
+          "name": "imlala",
+          "password": "example" // 设置连接密码
+        }
+      ],
+      "tls": {
+        "enabled": true,
+        "server_name": "hy2.example.com", // 域名
+        "acme": {
+          "domain": "hy2.example.com", // 域名
+          "email": "example@example.com", // 邮箱
+          "dns01_challenge": {
+            "provider": "cloudflare",
+            "api_token": "example" // https://developers.cloudflare.com/fundamentals/api/get-started/create-token/
+          }
+        }
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "direct"
+    },
+    {
+      "type": "dns",
+      "tag": "dns-out"
+    }
+  ],
+  "route": {
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "dns-out"
+      }
+    ]
+  }
+}
