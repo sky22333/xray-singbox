@@ -2,7 +2,7 @@
 
 
 
-### docker运行xray
+### Docker运行xray
 
 创建配置文件`/etc/xray/config.json`
 
