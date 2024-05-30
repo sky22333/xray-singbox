@@ -4,7 +4,10 @@
 
 ### Docker运行xray
 
-创建配置文件`/etc/xray/config.json`
+创建配置文件
+```
+mkdir -p /etc/xray && touch /etc/xray/config.json
+```
 
 运行：
 
