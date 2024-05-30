@@ -186,6 +186,9 @@ www.cloudflare.com
 
 #### Dokcer安装
 ```
+cd /home && touch config.json
+```
+```
 docker run -d \
   --name sb \
   --network host \
