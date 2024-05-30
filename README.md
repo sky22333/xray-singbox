@@ -187,6 +187,7 @@ www.cloudflare.com
 #### Dokcer安装
 ```
 docker run -d \
+  --name sb \
   --network host \
   --restart unless-stopped \
   --volume $PWD/:/etc/sing-box/ \
