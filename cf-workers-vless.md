@@ -11,8 +11,8 @@
 // @ts-ignore
 import { connect } from "cloudflare:sockets";
 
-// 修改你的UUID:
 // [Windows] Press "Win + R", input cmd and run:  Powershell -NoExit -Command "[guid]::NewGuid()"
+// 修改你的UUID:
 let userID = "ffe18180-e9e0-402a-829b-af429b0436a5";
 
 const proxyIPs = ["cdn.xn--b6gac.eu.org"]; //workers.cloudflare.cyou bestproxy.onecf.eu.org cdn-all.xn--b6gac.eu.org cdn.xn--b6gac.eu.org
