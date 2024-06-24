@@ -1,6 +1,10 @@
 #### Workers和Pages——创建`Worker`——部署——编辑代码——放入代码并替换UUID——保存并部署——浏览器输入`域名/uuid`查看配置
 
+1、UUID必须自定义（第7行）
 
+2、如果无法访问CF类网站或者ChatGPT，说明ProxyIP失效，可更换ProxyIP，自定义（第9行）
+
+3、伪装网页默认留空，显示为本地IP信息代码界面，可自定义（第10行）
 
 ```
 // <!--GAMFC-->version base on commit 43fad05dcdae3b723c53c226f8181fc5bd47223e, time is 2023-06-22 15:20:02 UTC<!--GAMFC-END-->.
