@@ -11,7 +11,7 @@
 // @ts-ignore
 import { connect } from "cloudflare:sockets";
 
-// 修改 UUID:
+// 修改你的UUID:
 // [Windows] Press "Win + R", input cmd and run:  Powershell -NoExit -Command "[guid]::NewGuid()"
 let userID = "ffe18180-e9e0-402a-829b-af429b0436a5";
 
