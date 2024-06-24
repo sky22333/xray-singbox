@@ -1,3 +1,12 @@
+
+1、密码必须自定义（第5行）
+
+2、如果无法访问CF类网站或者ChatGPT，说明ProxyIP失效，可更换ProxyIP，自定义（第6行）
+
+3、伪装网页默认留空，显示为本地IP信息代码界面，可自定义（第8行）
+
+
+```
 // src/worker.js
 import { connect } from "cloudflare:sockets";
 
@@ -1200,3 +1209,4 @@ ${displayHtml}
     }
   }
 })();
+```
