@@ -688,7 +688,7 @@ async function handleUDPOutBound(webSocket, vlessResponseHeader, log) {
  */
 function getVLESSConfig(userID, hostName) {
   const wvlessws = `vless://${userID}\u0040www.visa.com.sg:80?encryption=none&security=none&type=ws&host=${hostName}&path=%2F%3Fed%3D2560#${hostName}`;
-  const pvlesswstls = `vless://${userID}\u0040www.visa.com.sg:8443?encryption=none&security=tls&type=ws&host=${hostName}&sni=${hostName}&fp=random&path=%2F%3Fed%3D2560#${hostName}`;
+  const pvlesswstls = `vless://${userID}\u0040www.visa.com.sg:443?encryption=none&security=tls&type=ws&host=${hostName}&sni=${hostName}&fp=random&path=%2F%3Fed%3D2560#${hostName}`;
   const note = `\n正在使用的ProxyIP：${proxyIP}`;
   const noteshow = note.replace(/\n/g, '<br>');
   const displayHtml = `
