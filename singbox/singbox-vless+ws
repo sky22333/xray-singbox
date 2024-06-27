@@ -7,7 +7,7 @@
             "type": "vless",
             "tag": "vless-in",
             "listen": "::",
-            "listen_port": 15527,
+            "listen_port": 8080,    // 方便套CF
             "users": [
                 {
                     "uuid": "d6fe7c7e-dc2d-4339-aadc-e15e4d1a97d8"  // 执行 sing-box generate uuid 生成
