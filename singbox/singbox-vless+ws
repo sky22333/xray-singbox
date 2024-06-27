@@ -10,7 +10,7 @@
             "listen_port": 15527,
             "users": [
                 {
-                    "uuid": "d6fe7c7e-dc2d-4339-aadc-e15e4d1a97d8"  // 使用 sing-box uuid 生成命令
+                    "uuid": "d6fe7c7e-dc2d-4339-aadc-e15e4d1a97d8"  // 使用 sing-box uuid 生成
                 }
             ],
             "transport": {
