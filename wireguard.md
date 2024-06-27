@@ -3,7 +3,7 @@
 #### 替换两个`key`和`IP` `端口`即可
 ```
 {
-  "tag": "warp",
+  "tag": "warp1",
   "protocol": "wireguard",
   "settings": {
     "mtu": 1420,
