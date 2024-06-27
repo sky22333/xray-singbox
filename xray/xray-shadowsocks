@@ -6,7 +6,7 @@
             "protocol": "shadowsocks",
             "settings": {
                 "method": "2022-blake3-aes-128-gcm",
-                "password": " ", // 执行openssl rand -base64 16生成密钥
+                "password": "your_password", // 执行openssl rand -base64 16生成密钥
                 "network": "tcp,udp"
             }
         }
