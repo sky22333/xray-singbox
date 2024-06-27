@@ -14,7 +14,7 @@
     {
       "type": "hysteria2",
       "listen": "::",
-      "listen_port": 8080,
+      "listen_port": 8443,
       "sniff": true,
       "up_mbps": 300, // 服务器上行带宽
       "down_mbps": 300, // 服务器下行带宽
