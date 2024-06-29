@@ -229,4 +229,4 @@ bash <(curl -fsSL https://sing-box.app/deb-install.sh)
 ```
 bash <(wget -qO- -o- https://github.com/admin8800/sing-box/raw/main/install.sh)
 ```
-### 使用sing-box查看管理菜单
+### 使用`sing-box`查看管理菜单
