@@ -223,3 +223,10 @@ bash <(curl -fsSL https://sing-box.app/deb-install.sh)
 ##### [快速部署示例](https://lala.im/8949.html)
 
 ##### [官方文档](https://sing-box.sagernet.org/zh/configuration/)
+
+
+### sing-box一键脚本（多协议）
+```
+bash <(wget -qO- -o- https://github.com/admin8800/sing-box/raw/main/install.sh)
+```
+### 使用sing-box查看管理菜单
