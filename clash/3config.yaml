@@ -105,6 +105,7 @@ proxy-groups:
   - name: 🔰 自动选择
     type: url-test
     proxies:
+      - 🇺🇸 香港reality
       - 🇺🇸 VLESS美国
       - 🇯🇵 SS日本
       - 🇬🇧 HY2英国
