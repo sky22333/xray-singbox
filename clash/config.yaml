@@ -1,0 +1,31 @@
+# vless+ws+tls优选cf全局代理配置
+mixed-port: 7890
+allow-lan: true
+mode: rule
+log-level: info
+external-controller: :9090
+
+proxies:
+  - name: 🇺🇸 美国优选
+    type: vless
+    server: www.visa.com.sg
+    port: 443
+    uuid: 1111111111111111111111 # UUID
+    tls: true
+    servername: example.com # 伪装域名
+    network: ws
+    ws-opts:
+      path: /docker # ws路径
+      headers:
+        Host: example.com # sni域名
+    udp: true
+
+proxy-groups:
+  - name: 🚀 节点选择
+    type: select
+    proxies:
+      - 🇺🇸 美国优选
+      - DIRECT
+
+rules:
+  - MATCH,🚀 节点选择
