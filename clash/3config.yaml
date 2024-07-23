@@ -1,0 +1,132 @@
+# 多种协议示例
+# 常规设置
+mixed-port: 7890
+allow-lan: true
+mode: rule
+log-level: info
+external-controller: :9090
+
+# 代理设置
+proxies:
+  # VLESS 代理
+  - name: 🇺🇸 VLESS美国
+    type: vless
+    server: www.example1.com
+    port: 443
+    uuid: 11111111111111111111111
+    tls: true
+    servername: example1.com
+    network: ws
+    ws-opts:
+      path: /path
+      headers:
+        Host: example1.com
+    udp: true
+
+  # Shadowsocks 代理
+  - name: 🇯🇵 SS日本
+    type: ss
+    server: www.example2.com
+    port: 8388
+    cipher: aes-256-gcm
+    password: your_password
+    udp: true
+
+  # Hysteria2 代理
+  - name: 🇬🇧 HY2英国
+    type: hysteria2
+    server: www.example3.com
+    port: 443
+    password: your_password
+    alpn:
+      - h3
+    sni: example3.com
+    skip-cert-verify: false
+    hopinterval: 10
+
+  # WireGuard 代理
+  - name: 🇨🇦 WG加拿大
+    type: wireguard
+    server: www.example4.com
+    port: 51820
+    ip: 10.0.0.2
+    ipv6: fd42:42:42::2
+    private-key: your_private_key
+    public-key: server_public_key
+    udp: true
+
+  # VMess 代理
+  - name: 🇦🇺 VMess澳大利亚
+    type: vmess
+    server: www.example5.com
+    port: 443
+    uuid: 1363bd2a-e5f2-4d41-9fb8-6bd3c05ec2b1
+    alterId: 0
+    cipher: auto
+    tls: true
+    network: ws
+    ws-opts:
+      path: /vmess
+      headers:
+        Host: example5.com
+    udp: true
+
+# 代理组
+proxy-groups:
+  - name: 🚀 节点选择
+    type: select
+    proxies:
+      - 🇺🇸 VLESS美国
+      - 🇯🇵 SS日本
+      - 🇬🇧 HY2英国
+      - 🇨🇦 WG加拿大
+      - 🇦🇺 VMess澳大利亚
+      - 🔰 自动选择
+      - DIRECT
+
+  - name: 🔰 自动选择
+    type: url-test
+    proxies:
+      - 🇺🇸 VLESS美国
+      - 🇯🇵 SS日本
+      - 🇬🇧 HY2英国
+      - 🇨🇦 WG加拿大
+      - 🇦🇺 VMess澳大利亚
+    url: 'http://www.gstatic.com/generate_204'
+    interval: 300
+
+# 规则提供者 (与之前相同)
+rule-providers:
+  reject:
+    type: http
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/reject.txt"
+    path: ./ruleset/reject.yaml
+    interval: 86400
+
+  icloud:
+    type: http
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/icloud.txt"
+    path: ./ruleset/icloud.yaml
+    interval: 86400
+
+  # ... (其他规则提供者保持不变)
+
+# 规则
+rules:
+  - RULE-SET,reject,REJECT
+  - RULE-SET,icloud,DIRECT
+  - RULE-SET,apple,DIRECT
+  - RULE-SET,google,🚀 节点选择
+  - RULE-SET,proxy,🚀 节点选择
+  - RULE-SET,direct,DIRECT
+  - RULE-SET,private,DIRECT
+  - RULE-SET,gfw,🚀 节点选择
+  - RULE-SET,greatfire,🚀 节点选择
+  - RULE-SET,tld-not-cn,🚀 节点选择
+  - RULE-SET,telegramcidr,🚀 节点选择
+  - GEOIP,CN,DIRECT
+  - RULE-SET,cncidr,DIRECT
+  - RULE-SET,lancidr,DIRECT
+  - MATCH,🚀 节点选择
