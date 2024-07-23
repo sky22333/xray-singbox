@@ -23,6 +23,24 @@ proxies:
         Host: example1.com
     udp: true
 
+    # 新添加的reality+grpc节点
+  - name: 🇺🇸 香港reality
+    type: vless
+    server: 127.127.127.127
+    port: 8443
+    uuid: 11111111111111111111111
+    network: grpc
+    tls: true
+    udp: true
+    flow: 
+    client-fingerprint: chrome
+    servername: tesla.com
+    reality-opts:
+      public-key: oRqSBt0HvQwYnSBcfc6SZ1Ta-NzhWn9-PiTk58cH-z1
+      short-id: 83d45h13
+    grpc-opts:
+      grpc-service-name: "/"  
+
   # Shadowsocks 代理
   - name: 🇯🇵 SS日本
     type: ss
