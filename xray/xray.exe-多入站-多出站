@@ -1,0 +1,189 @@
+{
+  "inbounds": [
+    {
+      "port": 10801, // Socks服务端口，监听本地127.0.0.1
+      "listen": "127.0.0.1",
+      "protocol": "socks", // 使用SOCKS协议
+      "sniffing": {
+        "enabled": true, // 启用流量识别
+        "destOverride": ["http", "tls"] // 目标覆盖规则，识别http和tls流量
+      },
+      "settings": {
+        "auth": "noauth", // 不需要认证
+        "udp": true // 支持UDP流量转发
+      },
+      "tag": "socks-us" // 标签，用于路由选择
+    },
+    {
+      "port": 10802,
+      "listen": "127.0.0.1",
+      "protocol": "socks",
+      "sniffing": {
+        "enabled": true,
+        "destOverride": ["http", "tls"]
+      },
+      "settings": {
+        "auth": "noauth",
+        "udp": true
+      },
+      "tag": "socks-jp"
+    },
+    {
+      "port": 10803,
+      "listen": "127.0.0.1",
+      "protocol": "socks",
+      "sniffing": {
+        "enabled": true,
+        "destOverride": ["http", "tls"]
+      },
+      "settings": {
+        "auth": "noauth",
+        "udp": true
+      },
+      "tag": "socks-uk"
+    },
+    {
+      "port": 10804,
+      "listen": "127.0.0.1",
+      "protocol": "socks",
+      "sniffing": {
+        "enabled": true,
+        "destOverride": ["http", "tls"]
+      },
+      "settings": {
+        "auth": "noauth",
+        "udp": true
+      },
+      "tag": "socks-hk"
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "proxy-us", // 标签，用于路由选择
+      "protocol": "vless", // 使用VLESS协议
+      "settings": {
+        "vnext": [
+          {
+            "address": "us.example.com", // 服务器地址
+            "port": 443, // 服务器端口
+            "users": [
+              {
+                "id": "us-uuid-here", // 用户ID
+                "encryption": "none" // 加密方式，此处为无加密
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws", // 使用WebSocket网络传输
+        "security": "tls", // 安全传输层，使用TLS加密
+        "tlsSettings": {
+          "serverName": "us.example.com" // 服务器名称
+        },
+        "wsSettings": {
+          "path": "/path" // WebSocket路径
+        }
+      }
+    },
+    {
+      "tag": "proxy-jp",
+      "protocol": "shadowsocks", // 使用Shadowsocks协议
+      "settings": {
+        "servers": [
+          {
+            "address": "jp.example.com", // 服务器地址
+            "port": 8388, // 服务器端口
+            "method": "aes-256-gcm", // 加密方式
+            "password": "your-password-here" // 密码
+          }
+        ]
+      }
+    },
+    {
+      "tag": "proxy-uk",
+      "protocol": "vmess", // 使用VMess协议
+      "settings": {
+        "vnext": [
+          {
+            "address": "uk.example.com", // 服务器地址
+            "port": 443, // 服务器端口
+            "users": [
+              {
+                "id": "your-user-id", // 用户ID
+                "alterId": 64, // 伪装ID
+                "security": "auto" // 安全类型
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws", // 使用WebSocket网络传输
+        "security": "tls", // 安全传输层，使用TLS加密
+        "tlsSettings": {
+          "serverName": "uk.example.com" // 服务器名称
+        },
+        "wsSettings": {
+          "path": "/path" // WebSocket路径
+        }
+      }
+    },
+    {
+      "tag": "proxy-hk",
+      "protocol": "vless", // 使用VLESS协议
+      "settings": {
+        "vnext": [
+          {
+            "address": "hk.example.com", // 服务器地址
+            "port": 443, // 服务器端口
+            "users": [
+              {
+                "id": "hk-uuid-here", // 用户ID
+                "encryption": "none", // 加密方式，此处为无加密
+                "flow": "xtls-rprx-vision" // 流量控制方式
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "tcp", // 使用TCP网络传输
+        "security": "reality", // 安全传输层，使用Reality加密
+        "realitySettings": {
+          "show": false, // 是否显示Reality设置
+          "fingerprint": "chrome", // 指纹
+          "serverName": "www.swift.com", // 服务器名称
+          "publicKey": "your-public-key-here", // 公钥
+          "shortId": "your-short-id-here", // 短ID
+          "spiderX": "/" // SpiderX路径
+        }
+      }
+    }
+  ],
+  "routing": {
+    "domainStrategy": "AsIs", // 域名策略，保持原样
+    "rules": [
+      {
+        "type": "field", // 规则类型为域名
+        "inboundTag": ["socks-us"], // 入站标签为socks-us
+        "outboundTag": "proxy-us" // 出站标签为proxy-us
+      },
+      {
+        "type": "field",
+        "inboundTag": ["socks-jp"],
+        "outboundTag": "proxy-jp"
+      },
+      {
+        "type": "field",
+        "inboundTag": ["socks-uk"],
+        "outboundTag": "proxy-uk"
+      },
+      {
+        "type": "field",
+        "inboundTag": ["socks-hk"],
+        "outboundTag": "proxy-hk"
+      }
+    ]
+  }
+}
