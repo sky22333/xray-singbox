@@ -45,3 +45,5 @@ masquerade:
     rewriteHost: true
 EOF
 ```
+
+回国可以删掉`masquerade`模块
