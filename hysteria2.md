@@ -61,3 +61,6 @@ EOF
 ```
 
 回国可以去掉`masquerade`块的配置
+
+
+官方文档 [端口跳跃](https://v2.hysteria.network/zh/docs/advanced/Port-Hopping/)
