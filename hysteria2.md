@@ -44,6 +44,10 @@ listen: :8443 #监听端口
 #  cert: /etc/hysteria/server.crt
 #  key: /etc/hysteria/server.key
 
+bandwidth:
+  up: 30 m
+  down: 100 m
+
 auth:
   type: password
   password: ScTTOrcUCC2mUrITDh #设置认证密码
