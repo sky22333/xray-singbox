@@ -40,9 +40,9 @@ listen: :8443 #监听端口
 #  email: testexample@gmail.com
 
 #使用自签证书
-#tls:
-#  cert: /etc/hysteria/server.crt
-#  key: /etc/hysteria/server.key
+tls:
+  cert: /etc/hysteria/server.crt
+  key: /etc/hysteria/server.key
 
 bandwidth:
   up: 30 m
