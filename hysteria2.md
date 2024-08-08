@@ -1,20 +1,20 @@
 
 管理命令：
 ```
-#一键安装Hysteria2
+#一键安装hy2
 bash <(curl -fsSL https://get.hy2.sh/)
 
 
-#启动Hysteria2
+#启动
 systemctl start hysteria-server.service
 
-#重启Hysteria2
+#重启
 systemctl restart hysteria-server.service
 
-#查看Hysteria2状态
+#查看状态
 systemctl status hysteria-server.service
 
-#停止Hysteria2
+#停止
 systemctl stop hysteria-server.service
 
 #设置开机自启
