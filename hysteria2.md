@@ -60,6 +60,12 @@ masquerade:
 EOF
 ```
 
+节点URL格式：
+```
+hysteria2://认证密码@服务器IP:端口/?sni=bing.com&insecure=1#hy2
+```
+
+
 回国可以去掉`masquerade`块的配置
 
 
