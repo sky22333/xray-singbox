@@ -48,8 +48,8 @@ tls:
   key: /etc/hysteria/server.key
 
 bandwidth:
-  up: 30 m
-  down: 100 m
+  up: 100 m
+  down: 30 m
 
 auth:
   type: password
