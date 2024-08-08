@@ -1,9 +1,8 @@
+
+管理命令：
 ```
 #一键安装Hysteria2
 bash <(curl -fsSL https://get.hy2.sh/)
-
-#生成自签证书
-openssl req -x509 -nodes -newkey ec:<(openssl ecparam -name prime256v1) -keyout /etc/hysteria/server.key -out /etc/hysteria/server.crt -subj "/CN=bing.com" -days 36500 && sudo chown hysteria /etc/hysteria/server.key && sudo chown hysteria /etc/hysteria/server.crt
 
 #启动Hysteria2
 systemctl start hysteria-server.service
@@ -18,7 +17,12 @@ systemctl enable hysteria-server.service
 #查看日志
 journalctl -u hysteria-server.service
 ```
+生成自签证书：
+```
+openssl req -x509 -nodes -newkey ec:<(openssl ecparam -name prime256v1) -keyout /etc/hysteria/server.key -out /etc/hysteria/server.crt -subj "/CN=bing.com" -days 36500 && sudo chown hysteria /etc/hysteria/server.key && sudo chown hysteria /etc/hysteria/server.crt
+```
 
+服务端配置：
 ```
 cat << EOF > /etc/hysteria/config.yaml
 listen: :443 #监听端口
