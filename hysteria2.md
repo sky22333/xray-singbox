@@ -70,7 +70,8 @@ proxies:
   - {name: hy2, server: 服务器IP, port: 端口, client-fingerprint: chrome, type: hysteria2, password: 认证密码, auth: 认证密码, sni: bing.com, skip-cert-verify: true}
 ```
 
-回国可以去掉`masquerade`块的配置
+---
 
+> 回国可以去掉`masquerade`块的配置
 
-官方文档 [端口跳跃](https://v2.hysteria.network/zh/docs/advanced/Port-Hopping/)
+> 官方文档 [端口跳跃](https://v2.hysteria.network/zh/docs/advanced/Port-Hopping/)
