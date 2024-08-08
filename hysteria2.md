@@ -31,13 +31,13 @@ openssl req -x509 -nodes -newkey ec:<(openssl ecparam -name prime256v1) -keyout 
 服务端配置：
 ```
 cat << EOF > /etc/hysteria/config.yaml
-listen: :443 #监听端口
+listen: :8443 #监听端口
 
 #使用CA证书
 #acme:
 #  domains:
-#    - a.com #你的域名，需要先解析到服务器ip
-#  email: test@sharklasers.com
+#    - example.com #你的域名，需要先解析到服务器
+#  email: testexample@gmail.com
 
 #使用自签证书
 #tls:
@@ -46,7 +46,7 @@ listen: :443 #监听端口
 
 auth:
   type: password
-  password: 123456 #设置认证密码
+  password: ScTTOrcUCC2mUrITDh #设置认证密码
   
 masquerade:
   type: proxy
