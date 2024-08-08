@@ -50,4 +50,4 @@ masquerade:
 EOF
 ```
 
-回国可以删掉`masquerade`模块
+回国可以去掉`masquerade`块的配置
