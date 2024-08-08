@@ -4,6 +4,9 @@
 #一键安装hy2
 bash <(curl -fsSL https://get.hy2.sh/)
 
+#一键卸载hy2
+bash <(curl -fsSL https://get.hy2.sh/) --remove
+
 
 #启动
 systemctl start hysteria-server.service
