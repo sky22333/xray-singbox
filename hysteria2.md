@@ -47,9 +47,18 @@ tls:
   cert: /etc/hysteria/server.crt
   key: /etc/hysteria/server.key
 
+quic:
+  initStreamReceiveWindow: 8388608 
+  maxStreamReceiveWindow: 8388608 
+  initConnReceiveWindow: 20971520 
+  maxConnReceiveWindow: 20971520 
+  maxIdleTimeout: 30s 
+  maxIncomingStreams: 1024 
+  disablePathMTUDiscovery: false
+
 bandwidth:
-  up: 100 m
-  down: 30 m
+  up: 100 mbps
+  down: 20 mbps
 
 auth:
   type: password
