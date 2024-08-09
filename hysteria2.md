@@ -48,13 +48,10 @@ tls:
   key: /etc/hysteria/server.key
 
 quic:
-  initStreamReceiveWindow: 8388608 
-  maxStreamReceiveWindow: 8388608 
-  initConnReceiveWindow: 20971520 
-  maxConnReceiveWindow: 20971520 
-  maxIdleTimeout: 30s 
-  maxIncomingStreams: 1024 
-  disablePathMTUDiscovery: false
+  initStreamReceiveWindow: 26843545
+  maxStreamReceiveWindow: 26843545
+  initConnReceiveWindow: 67108864
+  maxConnReceiveWindow: 67108864
 
 bandwidth:
   up: 100 mbps
