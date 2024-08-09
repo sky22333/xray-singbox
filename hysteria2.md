@@ -71,7 +71,7 @@ EOF
 
 节点URL格式：
 ```
-hysteria2://认证密码@服务器IP:端口/?sni=bing.com&insecure=1#hy2
+hy2://认证密码@服务器IP:端口/?sni=bing.com&insecure=1#hy2
 ```
 clash-meta.yaml格式：
 ```
