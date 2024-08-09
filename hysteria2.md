@@ -25,6 +25,11 @@ systemctl enable hysteria-server.service
 
 #查看日志
 journalctl -u hysteria-server.service
+
+
+# 将发送、接收两个缓冲区都设置为 16 MB
+sysctl -w net.core.rmem_max=16777216
+sysctl -w net.core.wmem_max=16777216
 ```
 生成自签证书：
 ```
