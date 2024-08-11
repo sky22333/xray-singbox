@@ -77,12 +77,12 @@ EOF
 
 节点URL格式：
 ```
-hy2://认证密码@服务器IP:端口/?sni=bing.com&insecure=1#hy2
+hy2://认证密码@服务器地址:端口/?sni=bing.com&insecure=1#hy2
 ```
 clash-meta.yaml格式：
 ```
 proxies:
-  - {name: hy2, server: 服务器IP, port: 端口, client-fingerprint: chrome, type: hysteria2, password: 认证密码, auth: 认证密码, sni: bing.com, skip-cert-verify: true}
+  - {name: hy2, server: 服务器地址, port: 端口, client-fingerprint: chrome, type: hysteria2, password: 认证密码, auth: 认证密码, sni: bing.com, skip-cert-verify: true}
 ```
 
 ---
