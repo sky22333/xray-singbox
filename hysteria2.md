@@ -77,7 +77,7 @@ EOF
 
 节点URL格式：
 ```
-hy2://认证密码@服务器地址:端口/?sni=bing.com&insecure=1#hy2
+hy2://认证密码@服务器地址:8443/?sni=bing.com&insecure=1#hy2
 ```
 clash-meta.yaml格式：
 ```
@@ -90,3 +90,8 @@ proxies:
 > 回国可以去掉`masquerade`块的配置
 
 > 官方文档 [端口跳跃](https://v2.hysteria.network/zh/docs/advanced/Port-Hopping/)
+> 需安装`iptables`
+
+```
+iptables -t nat -A PREROUTING -i eth0 -p udp --dport 20000:50000 -j REDIRECT --to-ports 8443
+```
