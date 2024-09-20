@@ -37,6 +37,10 @@
     {
       "tag": "direct",
       "protocol": "freedom"
+    },
+    {
+      "tag": "tunnel",
+      "protocol": "freedom"
     }
   ],
   "routing": {
