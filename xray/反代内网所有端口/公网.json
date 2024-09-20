@@ -1,39 +1,14 @@
 {
-  "reverse": {
-    "bridges": [
-      {
-        "tag": "bridge",
-        "domain": "your-public-server-ip" // 替换为您的公网服务器IP
-      }
-    ]
-  },
   "inbounds": [
     {
-      "tag": "reverse",
-      "port": 12955, // 与公网服务器的tunnel入站端口相同
-      "protocol": "dokodemo-door",
-      "settings": {
-        "address": "127.0.0.1",
-        "port": 0, // 0表示任意端口
-        "network": "tcp,udp"
-      }
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "tunnel",
+      "tag": "external",
+      "port": 44721,
       "protocol": "vmess",
       "settings": {
-        "vnext": [
+        "clients": [
           {
-            "address": "your-public-server-ip", // 替换为您的公网服务器IP
-            "port": 44721,
-            "users": [
-              {
-                "id": "8f91b6a0-e8ee-11ed-a05b-0242ac120003",
-                "alterId": 0
-              }
-            ]
+            "id": "8f91b6a0-e8ee-11ed-a05b-0242ac120003",
+            "alterId": 0
           }
         ]
       },
@@ -41,6 +16,24 @@
         "network": "tcp"
       }
     },
+    {
+      "tag": "tunnel",
+      "port": 12955,
+      "protocol": "vmess",
+      "settings": {
+        "clients": [
+          {
+            "id": "9d85be10-e8ee-11ed-a05b-0242ac120003",
+            "alterId": 0
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "tcp"
+      }
+    }
+  ],
+  "outbounds": [
     {
       "tag": "direct",
       "protocol": "freedom"
@@ -51,13 +44,8 @@
     "rules": [
       {
         "type": "field",
-        "inboundTag": ["bridge"],
+        "inboundTag": ["external"],
         "outboundTag": "tunnel"
-      },
-      {
-        "type": "field",
-        "inboundTag": ["reverse"],
-        "outboundTag": "direct"
       }
     ]
   }
