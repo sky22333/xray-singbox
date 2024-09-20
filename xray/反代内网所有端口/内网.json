@@ -7,18 +7,6 @@
       }
     ]
   },
-  "inbounds": [
-    {
-      "tag": "reverse",
-      "port": 12955, // 与公网服务器的tunnel入站端口相同
-      "protocol": "dokodemo-door",
-      "settings": {
-        "address": "127.0.0.1",
-        "port": 0, // 0表示任意端口
-        "network": "tcp,udp"
-      }
-    }
-  ],
   "outbounds": [
     {
       "tag": "tunnel",
