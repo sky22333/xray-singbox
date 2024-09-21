@@ -1,0 +1,71 @@
+{
+  "log": {
+    "loglevel": "warning"
+  },
+  "inbounds": [
+    {
+      "port": 62789,
+      "protocol": "dokodemo-door",
+      "settings": {
+        "address": "127.0.0.1"
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "direct",
+      "protocol": "freedom",
+      "settings": {
+        "domainStrategy": "UseIP"
+      }
+    },
+    {
+      "tag": "blocked",
+      "protocol": "blackhole"
+    },
+    {
+      "tag": "vmess-out",
+      "protocol": "vmess",
+      "settings": {
+        "vnext": [
+          {
+            "address": "云服务器公网地址",
+            "port": 19988,
+            "users": [
+              {
+                "id": "defcd52a-403c-4f2c-bb13-ee6787127890"   // 填云服务器公网的入站
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "security": "none"
+      }
+    }
+  ],
+  "routing": {
+    "rules": [
+      {
+        "type": "field",
+        "inboundTag": ["reverse-0"],
+        "outboundTag": "vmess-out",
+        "domain": ["full:reverse.xui"]
+      },
+      {
+        "type": "field",
+        "inboundTag": ["reverse-0"],
+        "outboundTag": "direct"
+      }
+    ]
+  },
+  "reverse": {
+    "bridges": [
+      {
+        "tag": "reverse-0",
+        "domain": "reverse.xui"
+      }
+    ]
+  }
+}

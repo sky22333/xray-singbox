@@ -1,0 +1,85 @@
+{
+  "log": {
+    "loglevel": "warning"
+  },
+  "inbounds": [
+    {
+      "listen": "0.0.0.0",
+      "port": 19988,
+      "protocol": "vmess",
+      "settings": {
+        "clients": [
+          {
+            "id": "defcd52a-403c-4f2c-bb13-ee6787127890"      // 接收家庭内网流量的入站
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "security": "none"
+      },
+      "tag": "inbound-19988"
+    },
+    {
+      "listen": "0.0.0.0",
+      "port": 9988,
+      "protocol": "vmess",
+      "settings": {
+        "clients": [
+          {
+            "id": "d5ba6894-6fcd-46f6-a9f1-f268btmn0782"    // 需要连接的入站
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "security": "none"
+      },
+      "tag": "inbound-9988"
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "freedom",
+      "settings": {
+        "domainStrategy": "UseIP"
+      },
+      "tag": "direct"
+    },
+    {
+      "protocol": "blackhole",
+      "settings": {},
+      "tag": "blocked"
+    }
+  ],
+  "reverse": {
+    "portals": [
+      {
+        "domain": "reverse.xui",
+        "tag": "reverse-0"
+      }
+    ]
+  },
+  "routing": {
+    "domainStrategy": "AsIs",
+    "rules": [
+      {
+        "domain": [
+          "full:reverse.xui"
+        ],
+        "inboundTag": [
+          "inbound-19988"
+        ],
+        "outboundTag": "reverse-0",
+        "type": "field"
+      },
+      {
+        "inboundTag": [
+          "inbound-9988"
+        ],
+        "outboundTag": "reverse-0",
+        "type": "field"
+      }
+    ]
+  }
+}
