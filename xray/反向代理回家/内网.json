@@ -29,11 +29,11 @@
       "settings": {
         "vnext": [
           {
-            "address": "云服务器公网地址",
+            "address": "x.x.x.x",                      // 填云服务器公网IP
             "port": 19988,
             "users": [
               {
-                "id": "bd8d13b2-f161-4ea5-b4d7-e5c145ccaeb7"   // 填云服务器公网的入站
+                "id": "bd8d13b2-f161-4ea5-b4d7-e5c145ccaeb7"   // 填云服务器公网的入站UUID
               }
             ]
           }
