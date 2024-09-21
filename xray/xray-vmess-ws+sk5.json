@@ -67,7 +67,7 @@
                 ],
                 "accounts": [
                     {
-                        "user": "admin",
+                        "user": "adminuser",
                         "pass": "adminpass"
                     }
                 ]
