@@ -28,8 +28,8 @@
       "settings": {
         "vnext": [
           {
-            "address": "21.40.102.80",
-            "port": 51111,
+            "address": "192.168.3.1",
+            "port": 12345,
             "users": [
               {
                 "id": "00c49895-c822-415b-a877-5ca31faca1",
@@ -53,8 +53,8 @@
       "settings": {
         "vnext": [
           {
-            "address": "21.40.102.80",
-            "port": 51112,
+            "address": "192.168.3.2",
+            "port": 12346,
             "users": [
               {
                 "id": "00c49895-c822-415b-a877-5ca31faca2",
