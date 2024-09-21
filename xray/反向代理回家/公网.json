@@ -10,7 +10,7 @@
       "settings": {
         "clients": [
           {
-            "id": "defcd52a-403c-4f2c-bb13-ee6787127890"      // 接收家庭内网流量的入站
+            "id": "bd8d13b2-f161-4ea5-b4d7-e5c145ccaeb7"      // 接收家庭内网流量的入站
           }
         ]
       },
@@ -27,7 +27,7 @@
       "settings": {
         "clients": [
           {
-            "id": "d5ba6894-6fcd-46f6-a9f1-f268btmn0782"    // 需要连接的入站
+            "id": "da53114b-22f0-4dc7-b21c-e11ed318d0e9"    // 需要连接的入站
           }
         ]
       },
