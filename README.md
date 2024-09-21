@@ -6,13 +6,13 @@
 
 创建配置文件
 ```
-mkdir -p /etc/xray && touch /etc/xray/config.json
+touch config.json
 ```
 
 运行：
 
 ```
-docker run -d --network host --name xray --restart=always -v /etc/xray:/etc/xray teddysun/xray
+docker run -d --network host --name xray --restart=always -v ./config.json:/etc/xray/config.json teddysun/xray
 ```
 
 
@@ -192,7 +192,7 @@ cd /home && touch config.json
 docker run -d \
   --name sb \
   --network host \
-  --restart unless-stopped \
+  --restart always \
   --volume $PWD/:/etc/sing-box/ \
   --cap-add NET_ADMIN \
   --device /dev/net/tun \
