@@ -274,8 +274,8 @@ proxy-groups:
     - 负载均衡                                            #自定义添加协议的name字段
     - 自动选择
     - DIRECT
-	  - shadowsocks节点
-	  - socks5节点
+    - shadowsocks节点
+    - socks5节点
     - vless-reality-vision节点                                    
     - vless-reality-grpc节点
     - vless-xtls-rprx-vision节点
