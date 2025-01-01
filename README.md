@@ -218,6 +218,8 @@ bash <(curl -fsSL https://sing-box.app/deb-install.sh)
 
 重新启动	             `systemctl restart sing-box`
 
+运行状态              `systemctl status sing-box`
+
 查看日志	             `journalctl -u sing-box --output cat -e`
 
 实时日志	             `journalctl -u sing-box --output cat -f`
