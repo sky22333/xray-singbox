@@ -90,7 +90,7 @@ proxies:
 > 回国可以去掉`masquerade`块的配置
 
 > 官方文档 [端口跳跃](https://v2.hysteria.network/zh/docs/advanced/Port-Hopping/)
-> 需安装`iptables`
+> 需安装`iptables`（一般都默认已安装）
 
 ```
 iptables -t nat -A PREROUTING -i eth0 -p udp --dport 20000:50000 -j REDIRECT --to-ports 8443
