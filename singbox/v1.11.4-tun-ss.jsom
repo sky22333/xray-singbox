@@ -1,0 +1,78 @@
+{
+  "log": {
+    "level": "info"
+  },
+  "dns": {
+    "servers": [
+      {
+        "tag": "google",
+        "address": "tls://8.8.8.8"
+      }
+    ]
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "sing-tun",
+      "mtu": 9000,
+      "stack": "system",
+      "sniff": true,
+      "endpoint_independent_nat": true,
+      "address": [
+        "172.19.0.1/30"
+      ],
+      "auto_route": true,
+      "strict_route": true
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "shadowsocks",
+      "tag": "proxy",
+      "server": "123.123.123.123",
+      "server_port": 9627,
+      "method": "aes-256-gcm",
+      "password": "xxxxxxxxxxxxxxxxxxxxxxxxx"
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "direct"
+      },
+      {
+        "ip_version": 6,
+        "outbound": "block"
+      },
+      {
+        "inbound": ["tun-in"],
+        "network": "tcp",
+        "port": [22],
+        "outbound": "direct"
+      },
+      {
+        "geoip": ["private"],
+        "outbound": "direct"
+      },
+      {
+        "ip_cidr": [
+          "192.168.0.0/16",
+          "fc00::/7"
+        ],
+        "outbound": "direct"
+      }
+    ],
+    "final": "proxy"
+  }
+}
