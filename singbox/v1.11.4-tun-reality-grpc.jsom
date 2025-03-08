@@ -1,0 +1,96 @@
+{
+  "log": {
+    "level": "info"
+  },
+  "dns": {
+    "servers": [
+      {
+        "tag": "google",
+        "address": "tls://8.8.8.8"
+      }
+    ]
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "sing-tun",
+      "mtu": 9000,
+      "stack": "system",
+      "sniff": true,
+      "endpoint_independent_nat": true,
+      "address": [
+        "172.19.0.1/30",
+        "fd00::1/64"
+      ],
+      "auto_route": true,
+      "strict_route": true
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "vless",
+      "tag": "proxy",
+      "server": "123.123.123.123",
+      "server_port": 8443,
+      "uuid": "xxxxxxxxxxxxxxxxxxxxxxxx",
+      "tls": {
+        "enabled": true,
+        "server_name": "tesla.com",
+        "insecure": false,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "oRqSBt0HvQUYxnBcSc6SZ1Ta-NzGWn9-PiTE58cH-z0",
+          "short_id": "80dad223"
+        }
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": ""
+      }
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "direct"
+      },
+      {
+        "ip_version": 6,
+        "outbound": "proxy"
+      },
+      {
+        "inbound": ["tun-in"],
+        "network": "tcp",
+        "port": [22],
+        "outbound": "direct"
+      },
+      {
+        "geoip": ["private"],
+        "outbound": "proxy"
+      },
+      {
+        "ip_cidr": [
+          "192.168.0.0/16",
+          "fc00::/7"
+        ],
+        "outbound": "direct"
+      }
+    ],
+    "final": "proxy"
+  }
+}
