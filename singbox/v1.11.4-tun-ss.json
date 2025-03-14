@@ -15,8 +15,6 @@
       "type": "tun",
       "tag": "tun-in",
       "interface_name": "sing-tun",
-      "mtu": 9000,
-      "stack": "system",
       "sniff": true,
       "endpoint_independent_nat": true,
       "address": [
