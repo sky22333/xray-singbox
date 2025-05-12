@@ -1,10 +1,10 @@
-### `v1.11.5`版本安装脚本
+-  `v1.11.5`版本安装脚本
 ```
 bash <(curl -Ls https://raw.githubusercontent.com/sky22333/xray-singbox/main/singbox/install.sh)
 ```
 
 
 
-### `anytls`协议需要`v1.12.0`版本以上
+-  `anytls`协议需要`v1.12.0`版本以上
 
 https://github.com/SagerNet/sing-box/releases/tag/v1.12.0-beta.13
