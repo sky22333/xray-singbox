@@ -1,0 +1,39 @@
+{
+  "log": {
+    "level": "info"
+  },
+  "inbounds": [
+    {
+      "type": "anytls",
+      "tag": "anytls-in",
+      "listen": "::",
+      "listen_port": 8443,
+      "users": [
+        {
+          "name": "sky22333",
+          "password": "8JCsPssfgS8tiRwiMlhARg=="
+        }
+      ],
+      "tls": {
+        "enabled": true,
+        "acme": {
+          "domain": [
+            "你的域名"
+          ],
+          "data_directory": "/etc/sing-box/",
+          "default_server_name": "你的域名",
+          "email": "123456789admin@gmail.com"
+        }
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "direct",
+      "tag": "direct-out"
+    }
+  ],
+  "route": {
+    "rules": []
+  }
+}
