@@ -1,0 +1,35 @@
+{
+  "log": {
+    "level": "warn",
+    "timestamp": true
+  },
+  "inbounds": [
+    {
+      "type": "mixed",
+      "tag": "socks",
+      "listen": "127.0.0.1",
+      "listen_port": 10808
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "anytls",
+      "tag": "anytls-out",
+      "server": "你的服务器地址",
+      "server_port": 8443,
+      "password": "8JCsPssfgS8tiRwiMlhARg==",
+      "tls": {
+        "enabled": true,
+        "server_name": "你的域名"
+      }
+    }
+  ],
+  "route": {
+    "rules": [
+      {
+        "inbound": ["socks"],
+        "outbound": "anytls-out"
+      }
+    ]
+  }
+}
