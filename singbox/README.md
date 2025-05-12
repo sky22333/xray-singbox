@@ -1,3 +1,4 @@
+### `v1.11.5`版本安装脚本
 ```
 bash <(curl -Ls https://raw.githubusercontent.com/sky22333/xray-singbox/main/singbox/install.sh)
 ```
