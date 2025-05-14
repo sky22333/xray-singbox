@@ -1,11 +1,11 @@
 #（一区）=============================（clash配置）
-#dns可自行修改
-port: 7890
+#全局配置
+mixed-port: 7890
 allow-lan: true
 mode: rule
 log-level: info
 unified-delay: true
-global-client-fingerprint: chrome
+
 dns:
   enable: true
   listen: :53
@@ -246,7 +246,7 @@ proxies:
 
 
 
-#（三区）==============================（代理分流）
+#（三区）==============================（代理组）
 #分流组可自行创建添加，proxies参数下的name节点名称，按需求自行增减，确保出现的name节点名称在二区代理协议中可查找
 proxy-groups:
 - name: 负载均衡
@@ -314,4 +314,4 @@ rules:
   - IP-CIDR,10.0.0.0/8,DIRECT               # 指定 IP 范围直连
   - GEOIP,US,🌍选择代理节点                 # 针对美国地区的流量使用代理
   - GEOIP,JP,🌍选择代理节点                 # 针对日本地区的流量使用代理
-  - MATCH,🌍选择代理节点                    # 其他所有流量走代理
+  - MATCH,🌍选择代理节点                    # 其他所有流量走代理组
