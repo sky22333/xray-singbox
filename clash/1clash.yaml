@@ -1,7 +1,7 @@
 # 客户端多入站对应多出站配置示例
 # 全局配置
 mixed-port: 7890          # 入站混合协议
-allow-lan: false          # 局域网连接
+allow-lan: true           # 局域网连接
 mode: rule                # 规则模式
 log-level: info           # 日志级别
 external-controller: 127.0.0.1:9097  # 外部控制器端口
