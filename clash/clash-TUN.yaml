@@ -39,7 +39,7 @@ hosts:
   ]
 
 proxies:
-- name: "anytls节点"
+- name: "anytls-out"
   type: anytls
   server: example.com # 服务端地址（你的域名）
   port: 8443 # 节点端口
@@ -48,6 +48,22 @@ proxies:
   tls: true
   servername: example.com # 你的域名
 
+# 备用SSH协议
+- name: "ssh-out"
+  type: ssh
+  server: 127.0.0.1
+  port: 22
+  username: root
+  password: password
+
+# 备用SS协议
+- name: "ss-out"
+  type: ss
+  server: 127.0.0.1
+  port: 9527
+  cipher: aes-128-gcm
+  password: "password"
+  udp: true
 
 rules:
   - IP-CIDR,10.0.0.0/8,DIRECT
@@ -55,4 +71,5 @@ rules:
   - IP-CIDR,192.168.0.0/16,DIRECT
   - IP-CIDR,127.0.0.0/8,DIRECT
   - GEOIP,CN,DIRECT
-  - MATCH,anytls节点
+  - MATCH,anytls-out
+  
