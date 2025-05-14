@@ -233,8 +233,12 @@ bash <(curl -fsSL https://sing-box.app/deb-install.sh)
 ##### [官方文档](https://sing-box.sagernet.org/zh/configuration/)
 
 
-### sing-box一键脚本（多协议）
+
+---
+
+
+### sing-box代理一键脚本（多协议）
 ```
-bash <(wget -qO- -o- https://github.com/admin8800/sing-box/raw/main/install.sh)
+bash <(curl -sSL https://cdn.jsdelivr.net/gh/admin8800/sing-box@main/install.sh)
 ```
-### 使用`sing-box`查看管理菜单
+使用`sb`查看管理菜单
