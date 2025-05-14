@@ -26,14 +26,13 @@
       ],
       "tls": {
         "enabled": true,
-        "server_name": "hy2.example.com", // 域名
         "acme": {
-          "domain": "hy2.example.com", // 域名
-          "email": "example@example.com", // 邮箱
-          "dns01_challenge": {
-            "provider": "cloudflare",
-            "api_token": "example" // https://developers.cloudflare.com/fundamentals/api/get-started/create-token/
-          }
+          "domain": [
+            "example.com"
+          ],
+          "data_directory": "/etc/sing-box",
+          "default_server_name": "example.com",
+          "email": "123456789admin@gmail.com"
         }
       }
     }

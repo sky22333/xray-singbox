@@ -10,18 +10,18 @@
       "listen_port": 8443,
       "users": [
         {
-          "name": "sky22333",
-          "password": "8JCsPssfgS8tiRwiMlhARg=="
+          "name": "misaka",
+          "password": "5oiR55yf5piv5pyN5LqGYeS4jeimgeS7gOS5iOmDveaKhA=="
         }
       ],
       "tls": {
         "enabled": true,
         "acme": {
           "domain": [
-            "你的域名"
+            "example.com"
           ],
-          "data_directory": "/etc/sing-box/",
-          "default_server_name": "你的域名",
+          "data_directory": "/etc/sing-box",
+          "default_server_name": "example.com",
           "email": "123456789admin@gmail.com"
         }
       }
