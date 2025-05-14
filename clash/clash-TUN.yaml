@@ -40,6 +40,9 @@ hosts:
     '223.6.6.6'
   ]
 
+
+# 分割线 =============================（以下节点配置可直接复制到Clash-Verge配置）
+
 proxies:
 - name: "anytls-out"
   type: anytls
