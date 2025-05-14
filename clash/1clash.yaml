@@ -1,11 +1,10 @@
 # 客户端多入站对应多出站配置示例
-# 基本配置
-port: 7890                # HTTP 代理端口
-socks-port: 7891          # 全局 SOCKS5 代理端口
-allow-lan: true           # 允许局域网连接
+# 全局配置
+mixed-port: 7890          # 入站混合协议
+allow-lan: false          # 局域网连接
 mode: rule                # 规则模式
 log-level: info           # 日志级别
-external-controller: :9090 # 外部控制器端口
+external-controller: 127.0.0.1:9097  # 外部控制器端口
 
 # 监听器配置
 listeners:
@@ -82,7 +81,7 @@ proxies:
 
 # 代理组配置
 proxy-groups:
-  - name: 🚀 节点选择
+  - name: "🚀 节点选择"
     type: select              # 选择类型，允许手动选择
     proxies:
       - 🇺🇸 VLESS美国
@@ -93,7 +92,4 @@ proxy-groups:
 
 # 规则配置
 rules:
-  - MATCH,🚀 节点选择         # 匹配所有流量，转发到节点选择组
-
-# 其他规则配置
-...
+  - MATCH,🚀 节点选择         # 匹配所有流量，转发到节点选择代理组
