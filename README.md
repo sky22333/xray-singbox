@@ -212,8 +212,6 @@ bash <(curl -fsSL https://sing-box.app/deb-install.sh)
 
 停止	             `systemctl stop sing-box`
 
-强行停止	             `systemctl kill sing-box`
-
 开机自启	             `systemctl enable sing-box`
 
 重新启动	             `systemctl restart sing-box`
@@ -224,7 +222,7 @@ bash <(curl -fsSL https://sing-box.app/deb-install.sh)
 
 实时日志	             `journalctl -u sing-box --output cat -f`
 
-生成uuid             `sing-box generate uuid`
+生成uuid             `cat /proc/sys/kernel/random/uuid`
 
 生成reality-key      `sing-box generate reality-keypair`
 
