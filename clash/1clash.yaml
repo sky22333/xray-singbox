@@ -92,4 +92,8 @@ proxy-groups:
 
 # 规则配置
 rules:
+  - IP-CIDR,10.0.0.0/8,DIRECT
+  - IP-CIDR,172.17.0.1/16,DIRECT
+  - IP-CIDR,192.168.0.0/16,DIRECT
+  - IP-CIDR,127.0.0.0/8,DIRECT
   - MATCH,🚀 节点选择         # 匹配所有流量，转发到节点选择代理组
