@@ -13,9 +13,19 @@
 bash <(curl -sSL https://cdn.jsdelivr.net/gh/sky22333/xray-singbox@main/clash/install.sh)
 ```
 
-下载指定的版本
+- 下载指定的版本
 ```
 MIHOMO_URL="https://your.custom.url/mihomo.gz" bash <(curl -sSL https://cdn.jsdelivr.net/gh/sky22333/xray-singbox@main/clash/install.sh)
+```
+
+### 申请证书
+```
+bash <(curl -sSL https://cdn.jsdelivr.net/gh/sky22333/shell@main/acme.sh)
+```
+
+### UUID生成
+```
+cat /proc/sys/kernel/random/uuid
 ```
 
 ---
