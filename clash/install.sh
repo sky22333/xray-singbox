@@ -103,14 +103,14 @@ menu() {
   while true; do
     echo ""
     echo -e "${BLUE}========= Mihomo 服务管理工具 =========${NC}"
-    echo "1. 安装 Mihomo"
-    echo "2. 启动服务"
-    echo "3. 停止服务"
-    echo "4. 重启服务"
-    echo "5. 查看状态"
-    echo "6. 查看日志（实时）"
-    echo "7. 卸载 Mihomo（彻底删除）"
-    echo "0. 退出"
+    echo -e "${GREEN}1.${NC} 安装 Mihomo"
+    echo -e "${GREEN}2.${NC} 启动服务"
+    echo -e "${GREEN}3.${NC} 停止服务"
+    echo -e "${GREEN}4.${NC} 重启服务"
+    echo -e "${GREEN}5.${NC} 查看状态"
+    echo -e "${GREEN}6.${NC} 查看日志"
+    echo -e "${YELLOW}7.${NC} 卸载 Mihomo"
+    echo -e "${GREEN}0.${NC} 退出"
     echo -e "${BLUE}==========================================${NC}"
     read -p "请输入选项编号: " choice
     case "$choice" in
