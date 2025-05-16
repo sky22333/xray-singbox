@@ -119,7 +119,7 @@ uninstall_mihomo() {
 
 generate_self_signed_cert() {
   print_title "生成自签名证书"
-  read -rp "请输入要签发证书的域名（例如 aaa123.com）: " domain
+  read -rp "请输入要签发证书的域名: " domain
   if [[ -z "$domain" ]]; then
     echo -e "${RED}域名不能为空，请重新运行并输入有效域名。${NC}"
     return
@@ -132,7 +132,7 @@ generate_self_signed_cert() {
     -keyout "$CERT_KEY" -out "$CERT_CRT" -subj "/CN=$domain" -days 3650
 
   # 修改文件权限，假设 mihomo 用户存在
-  chown mihomo:mihomo "$CERT_KEY" "$CERT_CRT"
+  chmod 600 /etc/mihomo/server.key && chmod 644 /etc/mihomo/server.crt
 
   echo -e "${GREEN}自签名证书生成成功！${NC}"
   echo -e "${GREEN}证书路径: ${CERT_CRT}${NC}"
