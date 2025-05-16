@@ -15,8 +15,7 @@ listeners:
   port: 10002
   listen: 0.0.0.0
   users:
-    username1: vlmpIPSyHH6f4S8WVPdRIHIlzmB+GIRfoH3aNJ1
-    username2: vlmpIPSyHH6f4S8WVPdRIHIlzmB+GIRfoH3aNJ2
+    user1: vlmpIPSyHH6f4S8WVPdRIHIlzmB+GIRfoH3aNJ1
   certificate: ./server.crt
   private-key: ./server.key
 
