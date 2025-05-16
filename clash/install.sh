@@ -2,6 +2,13 @@
 
 set -e
 
+# 颜色定义
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[1;34m'
+RED='\033[1;31m'
+NC='\033[0m' # 无色
+
 # 可以通过环境变量替换下载地址
 MIHOMO_URL="${MIHOMO_URL:-https://github.com/MetaCubeX/mihomo/releases/download/v1.19.8/mihomo-linux-amd64-v1.19.8.gz}"
 BIN_PATH="/usr/local/bin/mihomo"
@@ -10,7 +17,12 @@ CONFIG_FILE="$CONFIG_DIR/config.yaml"
 SERVICE_FILE="/etc/systemd/system/mihomo.service"
 
 install_mihomo() {
-  echo "🚀 开始安装 Mihomo..."
+  if [ -f "$BIN_PATH" ]; then
+    echo -e "${YELLOW}已检测到 $BIN_PATH 存在，Mihomo 可能已安装，跳过安装。${NC}"
+    return
+  fi
+
+  echo -e "${BLUE}开始安装 Mihomo...${NC}"
   curl -L "$MIHOMO_URL" -o /tmp/mihomo.gz
   gunzip -f /tmp/mihomo.gz
   mv /tmp/mihomo "$BIN_PATH"
@@ -37,7 +49,7 @@ rules:
 - MATCH,direct
 EOF
 
-  echo "创建 systemd 服务文件..."
+  echo -e "${BLUE}创建 systemd 服务文件...${NC}"
   cat > "$SERVICE_FILE" << EOF
 [Unit]
 Description=mihomo Daemon, Another Clash Kernel.
@@ -58,20 +70,22 @@ ExecReload=/bin/kill -HUP \$MAINPID
 WantedBy=multi-user.target
 EOF
 
-  echo "重新加载 systemd..."
+  echo -e "${BLUE}重新加载 systemd...${NC}"
   systemctl daemon-reload
 
-  echo "设置开机自启..."
+  echo -e "${BLUE}设置开机自启...${NC}"
   systemctl enable mihomo
 
-  echo "安装完成！可在菜单中启动服务。"
+  echo -e "${GREEN}安装完成。${NC}"
+  echo -e "${GREEN}配置文件路径: ${CONFIG_FILE}${NC}"
+  echo -e "${GREEN}可在菜单中启动服务。${NC}"
 }
 
 uninstall_mihomo() {
-  echo "确定要卸载 Mihomo？这将删除所有相关文件！(y/n)"
+  echo -e "${RED}确定要卸载 Mihomo？这将删除所有相关文件！(y/n)${NC}"
   read -r confirm
   if [[ "$confirm" != "y" ]]; then
-    echo "已取消卸载"
+    echo -e "${YELLOW}已取消卸载${NC}"
     return
   fi
 
@@ -82,35 +96,33 @@ uninstall_mihomo() {
   rm -rf "$CONFIG_DIR"
   rm -f "$SERVICE_FILE"
   systemctl daemon-reload
-  echo "已彻底卸载 Mihomo"
+  echo -e "${GREEN}已彻底卸载 Mihomo${NC}"
 }
 
 menu() {
   while true; do
     echo ""
-    echo "========= Mihomo 服务管理工具 ========="
+    echo -e "${BLUE}========= Mihomo 服务管理工具 =========${NC}"
     echo "1. 安装 Mihomo"
     echo "2. 启动服务"
     echo "3. 停止服务"
     echo "4. 重启服务"
     echo "5. 查看状态"
     echo "6. 查看日志（实时）"
-    echo "7. 查看日志（末尾）"
-    echo "8. 卸载 Mihomo（彻底删除）"
+    echo "7. 卸载 Mihomo（彻底删除）"
     echo "0. 退出"
-    echo "=========================================="
+    echo -e "${BLUE}==========================================${NC}"
     read -p "请输入选项编号: " choice
     case "$choice" in
       1) install_mihomo ;;
-      2) systemctl start mihomo && echo "服务已启动" ;;
-      3) systemctl stop mihomo && echo "服务已停止" ;;
-      4) systemctl restart mihomo && echo "服务已重启" ;;
+      2) systemctl start mihomo && echo -e "${GREEN}服务已启动${NC}" ;;
+      3) systemctl stop mihomo && echo -e "${YELLOW}服务已停止${NC}" ;;
+      4) systemctl restart mihomo && echo -e "${GREEN}服务已重启${NC}" ;;
       5) systemctl status mihomo ;;
       6) journalctl -u mihomo -o cat -f ;;
-      7) journalctl -u mihomo -o cat -e ;;
-      8) uninstall_mihomo ;;
-      0) echo "再见！"; exit 0 ;;
-      *) echo "无效选项，请重新输入。" ;;
+      7) uninstall_mihomo ;;
+      0) echo -e "${GREEN}再见！${NC}"; exit 0 ;;
+      *) echo -e "${RED}无效选项，请重新输入。${NC}" ;;
     esac
   done
 }
