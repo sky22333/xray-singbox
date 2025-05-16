@@ -131,7 +131,7 @@ generate_self_signed_cert() {
   openssl req -x509 -nodes -newkey ec:<(openssl ecparam -name prime256v1) \
     -keyout "$CERT_KEY" -out "$CERT_CRT" -subj "/CN=$domain" -days 3650
 
-  # 修改文件权限，假设 mihomo 用户存在
+  # 修改证书权限
   chmod 600 /etc/mihomo/server.key && chmod 644 /etc/mihomo/server.crt
 
   echo -e "${GREEN}自签名证书生成成功！${NC}"
