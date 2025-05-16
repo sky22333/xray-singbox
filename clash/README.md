@@ -8,9 +8,9 @@ https://wiki.metacubex.one/config/
 https://github.com/MetaCubeX/mihomo/releases
 
 
-Linux一键下载
+Linux 一键安装
 ```
-wget -O ~/mihomo.gz https://github.com/MetaCubeX/mihomo/releases/download/v1.19.8/mihomo-linux-amd64-v1.19.8.gz && gunzip -c ~/mihomo.gz > ~/mihomo && chmod +x ~/mihomo && touch ~/config.yaml
+bash <(curl -sSL https://cdn.jsdelivr.net/gh/sky22333/xray-singbox@main/clash/install.sh)
 ```
 
 
