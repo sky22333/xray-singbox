@@ -5,7 +5,6 @@ set -e
 export TERM=xterm-256color
 
 # 颜色定义
-BOLD='\033[1m'
 GREEN='\033[32m'
 YELLOW='\033[33m'
 BLUE='\033[34m'
@@ -23,20 +22,20 @@ SERVICE_FILE="/etc/systemd/system/mihomo.service"
 
 # 美化函数，用于输出分隔线
 print_separator() {
-  echo -e "${BLUE}${BOLD}══════════════════════════════════════════${NC}"
+  echo -e "${BLUE}══════════════════════════════════════════${NC}"
 }
 
 # 输出标题
 print_title() {
   local title="$1"
   print_separator
-  echo -e "${BLUE}${BOLD}█ ${CYAN}$title${BLUE} █${NC}"
+  echo -e "${BLUE}█ ${CYAN}$title${BLUE} █${NC}"
   print_separator
 }
 
 install_mihomo() {
   if [ -f "$BIN_PATH" ]; then
-    echo -e "${YELLOW}${BOLD}已检测到 $BIN_PATH 存在，Mihomo 可能已安装，跳过安装。${NC}"
+    echo -e "${YELLOW}已检测到 $BIN_PATH 存在，Mihomo 可能已安装，跳过安装。${NC}"
     return
   fi
   
@@ -64,7 +63,7 @@ rules:
 - MATCH,direct
 EOF
 
-  echo -e "${CYAN}${BOLD}创建 systemd 服务文件...${NC}"
+  echo -e "${CYAN}创建 systemd 服务文件...${NC}"
   cat > "$SERVICE_FILE" << EOF
 [Unit]
 Description=mihomo Daemon, Another Clash Kernel.
@@ -85,24 +84,24 @@ ExecReload=/bin/kill -HUP \$MAINPID
 WantedBy=multi-user.target
 EOF
 
-  echo -e "${CYAN}${BOLD}重新加载 systemd...${NC}"
+  echo -e "${CYAN}重新加载 systemd...${NC}"
   systemctl daemon-reload
   
-  echo -e "${CYAN}${BOLD}设置开机自启...${NC}"
+  echo -e "${CYAN}设置开机自启...${NC}"
   systemctl enable mihomo
   
-  echo -e "${GREEN}${BOLD}✓ 安装完成${NC}"
-  echo -e "${GREEN}${BOLD}✓ 配置文件路径: ${CONFIG_FILE}${NC}"
-  echo -e "${GREEN}${BOLD}✓ 可在菜单中启动服务${NC}"
+  echo -e "${GREEN}安装完成${NC}"
+  echo -e "${GREEN}配置文件路径: ${CONFIG_FILE}${NC}"
+  echo -e "${GREEN}可在菜单中启动服务${NC}"
 }
 
 uninstall_mihomo() {
   print_title "卸载 Mihomo"
-  echo -e "${RED}${BOLD}确定要卸载 Mihomo？这将删除所有相关文件！(y/n)${NC}"
+  echo -e "${RED}确定要卸载 Mihomo？这将删除所有相关文件！(y/n)${NC}"
   read -r confirm
   
   if [[ "$confirm" != "y" ]]; then
-    echo -e "${YELLOW}${BOLD}已取消卸载${NC}"
+    echo -e "${YELLOW}已取消卸载${NC}"
     return
   fi
   
@@ -113,7 +112,7 @@ uninstall_mihomo() {
   rm -f "$SERVICE_FILE"
   systemctl daemon-reload
   
-  echo -e "${GREEN}${BOLD}✓ 已彻底卸载 Mihomo${NC}"
+  echo -e "${GREEN}已彻底卸载 Mihomo${NC}"
 }
 
 menu() {
@@ -121,29 +120,29 @@ menu() {
     echo ""
     print_title "Mihomo 服务管理工具"
     
-    echo -e "${CYAN}${BOLD} [${GREEN}1${CYAN}] ${GREEN}${BOLD}安装 Mihomo${NC}"
-    echo -e "${CYAN}${BOLD} [${GREEN}2${CYAN}] ${GREEN}${BOLD}启动服务${NC}"
-    echo -e "${CYAN}${BOLD} [${GREEN}3${CYAN}] ${GREEN}${BOLD}停止服务${NC}"
-    echo -e "${CYAN}${BOLD} [${GREEN}4${CYAN}] ${GREEN}${BOLD}重启服务${NC}"
-    echo -e "${CYAN}${BOLD} [${GREEN}5${CYAN}] ${GREEN}${BOLD}查看状态${NC}"
-    echo -e "${CYAN}${BOLD} [${GREEN}6${CYAN}] ${GREEN}${BOLD}查看日志${NC}"
-    echo -e "${CYAN}${BOLD} [${RED}7${CYAN}] ${RED}${BOLD}卸载 Mihomo${NC}"
-    echo -e "${CYAN}${BOLD} [${PURPLE}0${CYAN}] ${PURPLE}${BOLD}退出${NC}"
+    echo -e "${CYAN} [${GREEN}1${CYAN}] ${GREEN}安装 Mihomo${NC}"
+    echo -e "${CYAN} [${GREEN}2${CYAN}] ${GREEN}启动服务${NC}"
+    echo -e "${CYAN} [${GREEN}3${CYAN}] ${GREEN}停止服务${NC}"
+    echo -e "${CYAN} [${GREEN}4${CYAN}] ${GREEN}重启服务${NC}"
+    echo -e "${CYAN} [${GREEN}5${CYAN}] ${GREEN}查看状态${NC}"
+    echo -e "${CYAN} [${GREEN}6${CYAN}] ${GREEN}查看日志${NC}"
+    echo -e "${CYAN} [${RED}7${CYAN}] ${RED}卸载 Mihomo${NC}"
+    echo -e "${CYAN} [${PURPLE}0${CYAN}] ${PURPLE}退出${NC}"
     
     print_separator
-    echo -e "${BOLD}请输入选项编号: ${NC}" 
+    echo -e "请输入选项编号: " 
     read -r choice
     
     case "$choice" in
       1) install_mihomo ;;
-      2) systemctl start mihomo && echo -e "${GREEN}${BOLD}✓ 服务已启动${NC}" ;;
-      3) systemctl stop mihomo && echo -e "${YELLOW}${BOLD}✓ 服务已停止${NC}" ;;
-      4) systemctl restart mihomo && echo -e "${GREEN}${BOLD}✓ 服务已重启${NC}" ;;
+      2) systemctl start mihomo && echo -e "${GREEN}服务已启动${NC}" ;;
+      3) systemctl stop mihomo && echo -e "${YELLOW}服务已停止${NC}" ;;
+      4) systemctl restart mihomo && echo -e "${GREEN}服务已重启${NC}" ;;
       5) systemctl status mihomo ;;
       6) journalctl -u mihomo -o cat -f ;;
       7) uninstall_mihomo ;;
-      0) echo -e "${PURPLE}${BOLD}再见！${NC}"; exit 0 ;;
-      *) echo -e "${RED}${BOLD}✗ 无效选项，请重新输入。${NC}" ;;
+      0) echo -e "${PURPLE}再见！${NC}"; exit 0 ;;
+      *) echo -e "${RED}无效选项，请重新输入。${NC}" ;;
     esac
   done
 }
