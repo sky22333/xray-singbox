@@ -18,7 +18,7 @@ bash <(curl -sSL https://cdn.jsdelivr.net/gh/sky22333/xray-singbox@main/clash/in
 # 设置文件地址环境变量
 MIHOMO_URL="https://your.custom.url/mihomo.gz"
 
-# 下载指定版本
+# 基于指定的文件地址下载
 bash <(curl -sSL https://cdn.jsdelivr.net/gh/sky22333/xray-singbox@main/clash/install.sh)
 ```
 
