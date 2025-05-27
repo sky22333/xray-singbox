@@ -15,7 +15,7 @@ bash <(curl -sSL https://cdn.jsdelivr.net/gh/sky22333/xray-singbox@main/clash/in
 
 ### `mihome`一键安装脚本（指定版本）
 ```
-# 设置环境变量
+# 设置文件地址环境变量
 MIHOMO_URL="https://your.custom.url/mihomo.gz"
 
 # 下载指定版本
