@@ -150,8 +150,9 @@ menu() {
     echo -e "${CYAN} [${GREEN}4${CYAN}] ${GREEN}重启服务${NC}"
     echo -e "${CYAN} [${GREEN}5${CYAN}] ${GREEN}查看状态${NC}"
     echo -e "${CYAN} [${GREEN}6${CYAN}] ${GREEN}查看日志${NC}"
-    echo -e "${CYAN} [${GREEN}8${CYAN}] ${GREEN}自签证书生成${NC}"
-    echo -e "${CYAN} [${RED}7${CYAN}] ${RED}卸载 Mihomo${NC}"
+    echo -e "${CYAN} [${GREEN}7${CYAN}] ${GREEN}自签证书生成${NC}"
+    echo -e "${CYAN} [${GREEN}8${CYAN}] ${GREEN}查看配置路径${NC}"
+    echo -e "${CYAN} [${RED}9${CYAN}] ${RED}卸载 Mihomo${NC}"
     echo -e "${CYAN} [${PURPLE}0${CYAN}] ${PURPLE}退出${NC}"
 
     print_separator
@@ -165,8 +166,9 @@ menu() {
       4) systemctl restart mihomo && echo -e "${GREEN}服务已重启${NC}" ;;
       5) systemctl status mihomo ;;
       6) journalctl -u mihomo -o cat -f ;;
-      7) uninstall_mihomo ;;
-      8) generate_self_signed_cert ;;
+      7) generate_self_signed_cert ;;
+      8) ls /etc/mihomo && readlink -f /etc/mihomo/config.yaml ;;
+      9) uninstall_mihomo ;;
       0) echo -e "${PURPLE}再见！${NC}"; exit 0 ;;
       *) echo -e "${RED}无效选项，请重新输入。${NC}" ;;
     esac
