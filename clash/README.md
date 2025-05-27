@@ -20,7 +20,7 @@ MIHOMO_URL="https://your.custom.url/mihomo.gz" bash <(curl -sSL https://cdn.jsde
 
 ### 申请证书
 ```
-bash <(curl -sSL https://cdn.jsdelivr.net/gh/sky22333/shell@main/acme.sh)
+bash <(curl -sSL https://cdn.jsdelivr.net/gh/sky22333/shell@main/dev/acme.sh)
 ```
 
 ### UUID生成
