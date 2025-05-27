@@ -8,14 +8,18 @@
 
 
 
-### `Linux` 一键安装
+### `mihome`一键安装脚本
 ```
 bash <(curl -sSL https://cdn.jsdelivr.net/gh/sky22333/xray-singbox@main/clash/install.sh)
 ```
 
-- 下载指定的版本
+### `mihome`一键安装脚本（指定版本）
 ```
-MIHOMO_URL="https://your.custom.url/mihomo.gz" bash <(curl -sSL https://cdn.jsdelivr.net/gh/sky22333/xray-singbox@main/clash/install.sh)
+# 设置环境变量
+MIHOMO_URL="https://your.custom.url/mihomo.gz"
+
+# 下载指定版本
+bash <(curl -sSL https://cdn.jsdelivr.net/gh/sky22333/xray-singbox@main/clash/install.sh)
 ```
 
 ### 申请证书
