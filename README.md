@@ -228,8 +228,6 @@ bash <(curl -fsSL https://sing-box.app/deb-install.sh)
 
 ##### [配置文件示例](https://github.com/chika0801/sing-box-examples)   
 
-##### [快速部署示例](https://lala.im/8949.html)
-
 ##### [官方文档](https://sing-box.sagernet.org/zh/configuration/)
 
 
