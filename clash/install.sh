@@ -51,13 +51,17 @@ install_mihomo() {
 
   cat > "$CONFIG_FILE" << EOF
 log-level: warning
+
+# anytls协议
 listeners:
-- name: ss-in
-  type: shadowsocks
+- name: anytls-in
+  type: anytls
   port: 10001
-  listen: 127.0.0.1 
-  cipher: aes-256-gcm
-  password: vlmpIPSyHH6f4S8WVPdRIHIlzmB+GIRfoH3aNJ/t9Gg=
+  listen: 0.0.0.0
+  users:
+    user1: vlmpIPSyHH6f4S8WVPdRIHIlzmB+GIRfoH3a
+  certificate: ./server.crt
+  private-key: ./server.key
 proxies:
 - name: "direct"
   type: direct
