@@ -14,25 +14,26 @@
     {
       "type": "hysteria2",
       "listen": "::",
-      "listen_port": 8443,
-      "sniff": true,
-      "up_mbps": 300, // 服务器上行带宽
-      "down_mbps": 300, // 服务器下行带宽
+      "listen_port": 8443, // 节点端口
+      "up_mbps": 300,
+      "down_mbps": 300,
       "users": [
         {
-          "name": "imlala",
-          "password": "example" // 设置连接密码
+          "password": "example123" // 认证密码
         }
       ],
       "tls": {
         "enabled": true,
+        "alpn": [
+            "h3"
+        ],
         "acme": {
           "domain": [
-            "example.com"
+            "example.com" // TLS域名，通过内置的acme自动申请证书，无需手动干预，需要临时占用80端口
           ],
           "data_directory": "/etc/sing-box",
-          "default_server_name": "example.com",
-          "email": "123456789admin@gmail.com"
+          "default_server_name": "example.com",  // 你的域名
+          "email": "123456789admin@gmail.com"  // 申请证书的邮箱，可随意填写
         }
       }
     }
