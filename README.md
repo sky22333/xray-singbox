@@ -31,6 +31,7 @@ bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release
 /usr/local/etc/xray/config.json
 ```
 
+---
 
 <details>
 <summary>手动安装xray</summary>
@@ -38,10 +39,10 @@ bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release
 ###  手动安装 Xray
 
 1. 下载 Xray-core
-访问 Xray-core 的 GitHub 发布页面  https://github.com/XTLS/Xray-core/releases
-----
-下载```Xray-linux-64.zip```文件
 
+访问 Xray-core 的 GitHub 发布页面  https://github.com/XTLS/Xray-core/releases
+
+下载```Xray-linux-64.zip```文件
 
 ####  2. 解压文件
 解压下载的文件到```/usr/local/bin```目录：
@@ -115,8 +116,7 @@ sudo systemctl restart xray
 </details>
 
 ---
----
----
+
 ##  Reality域名推荐列表
 
 ```
