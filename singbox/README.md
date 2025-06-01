@@ -3,7 +3,7 @@
 bash <(curl -Ls https://raw.githubusercontent.com/sky22333/xray-singbox/main/singbox/install.sh)
 ```
 
-
+> 支持动态传入版本号，例如：`-v 1.11.5`
 
 -  `anytls`协议需要`v1.12.0`版本以上
 
