@@ -12,7 +12,12 @@ touch config.json
 运行：
 
 ```
-docker run -d --network host --name xray --restart=always -v ./config.json:/etc/xray/config.json teddysun/xray
+docker run -d \
+  --network host \
+  --name xray \
+  --restart=always \
+  -v ./config.json:/etc/xray/config.json \
+  teddysun/xray
 ```
 
 
