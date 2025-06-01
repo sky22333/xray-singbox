@@ -106,7 +106,7 @@ Restart=on-failure
 [Install]
 WantedBy=multi-user.target
 ```
-启用并启动服务：
+开机自启并启动服务：
 ```
 sudo systemctl enable xray
 ```
