@@ -16,7 +16,7 @@ rm -rf /etc/sing-box
 
 -  `anytls`协议需要`v1.12.0`版本以上
 
-https://github.com/SagerNet/sing-box/releases/tag/v1.12.0-beta.13
+通过脚本传入`-v 1.12.0-beta.19`下载
 
 
 ---
