@@ -3,7 +3,7 @@
 bash <(curl -Ls https://raw.githubusercontent.com/sky22333/xray-singbox/main/singbox/install.sh)
 ```
 
-> 支持动态传入版本号，例如：`-v 1.11.5`
+> 支持动态传入版本号，例如：`-v 1.11.11`
 
 - 卸载
 
