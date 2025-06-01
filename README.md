@@ -28,35 +28,9 @@ bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release
 
 ####  xray配置文件路径
 ```
-/usr/local/etc/xray
+/usr/local/etc/xray/config.json
 ```
 
-
-####  xray重启运行
-
-```
-sudo systemctl restart xray
-```
-
-
-####  xray运行状态
-
-
-```
-sudo systemctl status xray
-```
-
-
-####  xray日志路径
-
-```
-/var/log/xray/access.log
-/var/log/xray/error.log
-```
-
----
-
-[电脑运行客户端方法](https://xtls.github.io/document/level-0/ch08-xray-clients.html#_8-3-%E9%99%84%E5%8A%A0%E9%A2%98-1-%E5%9C%A8-pc-%E7%AB%AF%E6%89%8B%E5%B7%A5%E9%85%8D%E7%BD%AE-xray-core "PC端电脑运行xray客户端方法")
 
 <details>
 <summary>手动安装xray</summary>
@@ -171,65 +145,6 @@ www.cloudflare.com
 
 
 #####  [配置文档](https://xtls.github.io/config/)
-
-
-##### [安装文档](https://xtls.github.io/document/install.html#windows-%E5%AE%89%E8%A3%85%E6%96%B9%E5%BC%8F)
-
-
----
-
----
-
----
-
-# sing-box
-
-#### Dokcer安装
-```
-cd /home && touch config.json
-```
-```
-docker run -d \
-  --name sb \
-  --network host \
-  --restart always \
-  --volume $PWD/:/etc/sing-box/ \
-  --cap-add NET_ADMIN \
-  --device /dev/net/tun \
-  gzxhwq/sing-box:latest
-```
-
-#### 脚本安装
-```
-bash <(curl -fsSL https://sing-box.app/deb-install.sh)
-```
-
-#### 命令
-
-配置文件              `/etc/sing-box/config.json`
-
-启动	             `systemctl start sing-box`
-
-停止	             `systemctl stop sing-box`
-
-开机自启	             `systemctl enable sing-box`
-
-重新启动	             `systemctl restart sing-box`
-
-运行状态              `systemctl status sing-box`
-
-查看日志	             `journalctl -u sing-box --output cat -e`
-
-实时日志	             `journalctl -u sing-box --output cat -f`
-
-生成uuid             `cat /proc/sys/kernel/random/uuid`
-
-生成reality-key      `sing-box generate reality-keypair`
-
-##### [配置文件示例](https://github.com/chika0801/sing-box-examples)   
-
-##### [官方文档](https://sing-box.sagernet.org/zh/configuration/)
-
 
 
 ---
