@@ -62,6 +62,7 @@ listeners:
     user1: vlmpIPSyHH6f4S8WVPdRIHIlzmB+GIRfoH3a
   certificate: ./server.crt
   private-key: ./server.key
+  
 proxies:
 - name: "direct"
   type: direct
