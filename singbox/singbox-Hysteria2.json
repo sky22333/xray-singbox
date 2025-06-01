@@ -3,12 +3,12 @@
         {
             "type": "hysteria2",
             "listen": "::",
-            "listen_port": 443, // 节点端口
-            "up_mbps": 100, // 服务器上行带宽
-            "down_mbps": 20, // 服务器下行带宽
+            "listen_port": 8443, // 节点端口
+            "up_mbps": 300,
+            "down_mbps": 300,
             "users": [
                 {
-                    "password": "MmY95cDVgqnlxJe456MfpjS" // 连接密码
+                    "password": "example123" // 认证密码
                 }
             ],
             "tls": {
