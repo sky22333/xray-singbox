@@ -19,7 +19,7 @@ bash <(curl -sSL https://cdn.jsdelivr.net/gh/sky22333/xray-singbox@main/clash/in
 MIHOMO_URL="https://your.custom.url/mihomo.gz"
 
 # 基于指定的文件地址下载
-bash <(curl -sSL https://raw.githubusercontent.com/sky22333/xray-singbox/refs/heads/main/clash/install.sh)
+bash <(curl -sSL https://raw.githubusercontent.com/sky22333/xray-singbox/main/clash/install.sh)
 ```
 
 ### 申请证书
