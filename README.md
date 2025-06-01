@@ -27,9 +27,13 @@ docker run -d \
 ### 脚本安装xray
 
 ```
-bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install
+bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install --version v1.8.24
 ```
 
+- 完全卸载
+```
+bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ remove --purge
+```
 
 ####  xray配置文件路径
 ```
