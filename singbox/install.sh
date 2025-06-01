@@ -24,4 +24,4 @@ curl -Lo sing-box.deb "https://github.com/SagerNet/sing-box/releases/download/v$
 sudo dpkg -i sing-box.deb
 rm sing-box.deb
 
-echo "Sing-box ${VERSION} 安装成功!"
+echo "sing-box ${VERSION} 安装成功!"
