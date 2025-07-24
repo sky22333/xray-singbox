@@ -1,0 +1,77 @@
+# 多规则链式代理
+# 基本配置
+mode: rule                # 规则模式
+log-level: debug           # 日志级别
+
+# VMess入站配置
+listeners:
+  - name: vmess-in-1
+    type: vmess
+    port: 10811
+    listen: 0.0.0.0
+    users:
+      - username: 1
+        uuid: 9d0cb9d0-964f-4ef6-897d-6c6b3ccf9e68
+        alterId: 0
+    ws-path: "/ws"
+    proxy: "anytls-out"    # 将流量转发到anytls出站代理
+
+  - name: vmess-in-2
+    type: vmess
+    port: 10812
+    listen: 0.0.0.0
+    users:
+      - username: 2
+        uuid: 8c0ab8c0-853e-3de5-786c-5b5a2bce8d57
+        alterId: 0
+    ws-path: "/ws2"
+    proxy: "socks-out"     # 将流量转发到SOCKS出站代理
+
+# 出站代理配置
+proxies:
+  - name: anytls-out
+    type: anytls
+    server: 192.168.12.1 # 服务端地址
+    port: 10001 # 节点端口
+    password: "vlmpIPsdas786f4S8WVPdRIHIlzsdasd123" # 协议认证密码
+    idle-session-check-interval: 30
+    idle-session-timeout: 30
+    min-idle-session: 0
+    tls: true
+    skip-cert-verify: true # 跳过证书认证
+    servername: www.bing.com # 你的域名
+
+  - name: socks-out
+    type: socks5
+    server: 192.168.12.2 # SOCKS服务端地址
+    port: 1080 # SOCKS端口
+    username: "sockuser" # SOCKS认证用户名
+    password: "sockpass123" # SOCKS认证密码
+
+# 代理组配置
+proxy-groups:
+  - name: "节点选择"
+    type: select
+    proxies:
+      - "anytls-out"
+      - "socks-out"
+      - DIRECT
+
+  - name: "全球代理"
+    type: select
+    proxies:
+      - "节点选择"
+      - "anytls-out"
+      - "socks-out"
+      - DIRECT
+
+# 规则配置
+rules:
+  # 本地网络直连
+  - IP-CIDR,10.0.0.0/8,DIRECT
+  - IP-CIDR,172.16.0.0/12,DIRECT
+  - IP-CIDR,192.168.0.0/16,DIRECT
+  - IP-CIDR,127.0.0.0/8,DIRECT
+   
+  # 默认规则 - 其他所有流量通过代理
+  - MATCH,全球代理

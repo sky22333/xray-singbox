@@ -1,0 +1,57 @@
+# sk5入站路由到anytls出站
+# 基本配置
+mode: rule                # 规则模式
+log-level: debug           # 日志级别
+
+# socks入站配置
+listeners:
+  - name: socks-in
+    type: socks
+    port: 7891
+    listen: 0.0.0.0
+    udp: true
+    users:
+      - username: username1
+        password: password1
+    proxy: "anytls-out"    # 将流量转发到指定出站代理
+
+# anytls出站配置
+proxies:
+  - name: anytls-out
+    type: anytls
+    server: 192.168.12.1 # 服务端地址
+    port: 10001 # 节点端口
+    password: "vlmpIPsdas786f4S8WVPdRIHIlzsdasd123" # 协议认证密码
+    idle-session-check-interval: 30
+    idle-session-timeout: 30
+    min-idle-session: 0
+    tls: true
+    skip-cert-verify: true # 跳过证书认证
+    servername: www.bing.com # 你的域名
+
+
+# 代理组配置
+proxy-groups:
+  - name: "节点选择"
+    type: select
+    proxies:
+      - "anytls-out"
+      - DIRECT
+
+  - name: "全球代理"
+    type: select
+    proxies:
+      - "节点选择"
+      - "anytls-out"
+      - DIRECT
+
+# 规则配置
+rules:
+  # 本地网络直连
+  - IP-CIDR,10.0.0.0/8,DIRECT
+  - IP-CIDR,172.16.0.0/12,DIRECT
+  - IP-CIDR,192.168.0.0/16,DIRECT
+  - IP-CIDR,127.0.0.0/8,DIRECT
+  
+  # 默认规则 - 其他所有流量通过代理
+  - MATCH,全球代理
