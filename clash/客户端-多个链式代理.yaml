@@ -1,0 +1,92 @@
+# 全局配置
+mixed-port: 7890          # 入站混合协议
+allow-lan: false          # 局域网连接
+mode: rule                # 规则模式
+log-level: debug          # 日志级别
+external-controller: 127.0.0.1:9097  # 外部控制器端口
+
+# 开启tun模式
+tun:
+  enable: true
+  stack: system
+  auto-route: true
+  auto-redirect: true
+  auto-detect-interface: true
+  device: utun0
+  mtu: 9000
+  strict-route: true
+
+dns:
+  enable: true
+  listen: 0.0.0.0:1053
+  enhanced-mode: redir-host
+  nameserver:
+    - https://dns.alidns.com/dns-query
+    - https://doh.pub/dns-query
+  fallback:
+    - https://1.1.1.1/dns-query
+  fallback-filter:
+    geoip: true
+    geoip-code: CN
+  use-hosts: true
+
+hosts:
+  doh.pub: [
+    '120.53.53.53',
+    '1.12.12.21'
+  ]
+  dns.alidns.com: [
+    '223.5.5.5',
+    '223.6.6.6'
+  ]
+
+
+# 分割线 =============================（以下节点配置可直接复制到Clash-Verge配置，用作客户端配置链式代理）
+
+proxies:
+# AnyTLS代理 - 第一个出站代理
+- name: "anytls-out"
+  type: anytls
+  server: example.com # 服务端地址（你的域名）
+  port: 8443 # 节点端口
+  password: "aHR0cHM6Ly9ibG9nLjUyMDEzMTIwLnh5ei8=" # 协议认证密码
+  udp: true
+  tls: true
+  servername: example.com # 你的域名
+
+# SOCKS5代理 - 通过AnyTLS代理链式连接到目标
+- name: "socks-proxy"
+  type: socks5
+  server: 127.0.0.1      # SOCKS服务器地址
+  port: 1080             # SOCKS端口
+  username: "sockuser"   # SOCKS认证用户名（可选）
+  password: "sockpass"   # SOCKS认证密码（可选）
+  dialer-proxy: "anytls-out"  # 通过AnyTLS代理建立到SOCKS的连接
+  udp: true
+
+# SS协议 - 第二个出站代理
+- name: "ss-out"
+  type: ss
+  server: 127.0.0.1
+  port: 9527
+  cipher: aes-128-gcm
+  password: "password"
+  udp: true
+
+# 第二个SOCKS5代理 - 通过SS代理链式连接到目标
+- name: "socks-proxy2"
+  type: socks5
+  server: 192.168.1.100    # 第二个SOCKS服务器地址
+  port: 1081               # 不同的SOCKS端口
+  username: "sockuser2"    # 第二个SOCKS认证用户名（可选）
+  password: "sockpass2"    # 第二个SOCKS认证密码（可选）
+  dialer-proxy: "ss-out"   # 通过SS代理建立到SOCKS的连接
+  udp: true
+
+rules:
+  - IP-CIDR,10.0.0.0/8,DIRECT
+  - IP-CIDR,172.17.0.1/16,DIRECT
+  - IP-CIDR,192.168.0.0/16,DIRECT
+  - IP-CIDR,127.0.0.0/8,DIRECT
+  - GEOIP,CN,DIRECT
+  - MATCH,socks-proxy  # 默认流量走链式代理：AnyTLS → SOCKS

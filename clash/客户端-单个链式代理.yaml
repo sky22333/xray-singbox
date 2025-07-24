@@ -64,15 +64,6 @@ proxies:
   dialer-proxy: "anytls-out"  # 通过AnyTLS代理建立到SOCKS的连接
   udp: true
 
-# 备用SS协议出站
-- name: "ss-out"
-  type: ss
-  server: 127.0.0.1
-  port: 9527
-  cipher: aes-128-gcm
-  password: "password"
-  udp: true
-
 rules:
   - IP-CIDR,10.0.0.0/8,DIRECT
   - IP-CIDR,172.17.0.1/16,DIRECT
