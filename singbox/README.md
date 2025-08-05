@@ -3,7 +3,7 @@
 bash <(curl -Ls https://raw.githubusercontent.com/sky22333/xray-singbox/main/singbox/install.sh)
 ```
 
-> 默认安装`1.11.5`版本，脚本结尾支持动态传入版本号，例如：`-v 1.11.11`
+> 默认安装`1.11.5`版本，脚本结尾支持动态传入版本号，例如：`-v 1.12.0`
 
 - 卸载
 
@@ -16,7 +16,7 @@ rm -rf /etc/sing-box
 
 -  `anytls`协议需要`v1.12.0`版本以上
 
-通过脚本传入`-v 1.12.0-beta.19`下载
+通过脚本传入`-v 1.12.0`下载
 
 
 ---
