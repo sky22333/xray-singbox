@@ -21,6 +21,7 @@ CONFIG_FILE="$CONFIG_DIR/config.yaml"
 SERVICE_FILE="/etc/systemd/system/mihomo.service"
 CERT_KEY="$CONFIG_DIR/server.key"
 CERT_CRT="$CONFIG_DIR/server.crt"
+PASS="$(cat /proc/sys/kernel/random/uuid)"
 
 # 美化函数，用于输出分隔线
 print_separator() {
@@ -59,7 +60,7 @@ listeners:
   port: 10001
   listen: 0.0.0.0
   users:
-    user1: vlmpIPSyHH6f4S8WVPdRIHIlzmB+GIRfoH3a
+    user1: "${PASS}"
   certificate: ./server.crt
   private-key: ./server.key
   
