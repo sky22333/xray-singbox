@@ -14,7 +14,7 @@ PURPLE='\033[35m'
 NC='\033[0m' # 无色
 
 # 可以通过环境变量替换下载地址
-MIHOMO_URL="${MIHOMO_URL:-https://github.com/MetaCubeX/mihomo/releases/download/v1.19.9/mihomo-linux-amd64-v1.19.9.gz}"
+MIHOMO_URL="${MIHOMO_URL:-https://github.com/MetaCubeX/mihomo/releases/download/v1.19.11/mihomo-linux-amd64-v1.19.11.gz}"
 BIN_PATH="/usr/local/bin/mihomo"
 CONFIG_DIR="/etc/mihomo"
 CONFIG_FILE="$CONFIG_DIR/config.yaml"
