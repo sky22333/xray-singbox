@@ -60,7 +60,7 @@ listeners:
   port: 10001
   listen: 0.0.0.0
   users:
-    user1: "${PASS}"
+    user1: ${PASS}
   certificate: ./server.crt
   private-key: ./server.key
   
