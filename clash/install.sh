@@ -57,7 +57,7 @@ log-level: warning
 listeners:
 - name: anytls-in
   type: anytls
-  port: 10001
+  port: 8443
   listen: 0.0.0.0
   users:
     user1: ${PASS}
