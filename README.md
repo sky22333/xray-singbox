@@ -154,13 +154,3 @@ www.cloudflare.com
 
 
 #####  [配置文档](https://xtls.github.io/config/)
-
-
----
-
-
-### sing-box代理一键脚本（多协议）
-```
-bash <(curl -sSL https://cdn.jsdelivr.net/gh/admin8800/sing-box@main/install.sh)
-```
-使用`sb`查看管理菜单
