@@ -18,16 +18,16 @@ rm -rf /etc/sing-box
 
 #### Dokcer安装
 ```
-mkdir -p sing-box && cd sing-box && touch config.json
+mkdir -p /etc/sing-box && touch /etc/sing-box/config.json
 ```
 ```
 docker run -d \
-  --name sb \
+  --name sing-box \
   --network host \
   --restart always \
-  --volume ./:/etc/sing-box/ \
   --cap-add NET_ADMIN \
   --device /dev/net/tun \
+  -v /etc/sing-box:/etc/sing-box \
   gzxhwq/sing-box
 ```
 
