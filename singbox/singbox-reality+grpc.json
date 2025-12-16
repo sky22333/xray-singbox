@@ -1,38 +1,41 @@
 {
-    "inbounds": [
+  "log": {
+    "level": "info"
+  },
+  "inbounds": [
+    {
+      "type": "vless",
+      "listen": "::",
+      "listen_port": 443,
+      "users": [
         {
-            "type": "vless",
-            "listen": "::",
-            "listen_port": 443,
-            "users": [
-                {
-                    "uuid": "542d8272-e795-4d15-8507-83a432813e22"  // 执行sing-box generate uuid生成
-                }
-            ],
-            "tls": {
-                "enabled": true,
-                "server_name": "www.lovelive-anime.jp", // 要偷的域名
-                "reality": {
-                    "enabled": true,
-                    "handshake": {
-                        "server": "www.lovelive-anime.jp", // 要偷的域名
-                        "server_port": 443
-                    },
-                    "private_key": "wFGFSx-bnVbw6Z2AHArpVVk0dw21FBT_CzbFN9hvoW8", // // 执行 sing-box generate reality-keypair 生成，填Private key的值，客户端填public key的值
-                    "short_id": [
-                        "ccda29d7777fbb0b"  // 执行 sing-box generate rand 8 --hex 生成
-                    ]
-                }
-            },
-            "transport": {
-                "type": "grpc",
-                "service_name": "misakacloud" // grpc路径
-            }
+          "uuid": "542d8272-e795-4d15-8507-83a432813e22"  // 执行sing-box generate uuid生成
         }
-    ],
-    "outbounds": [
-        {
-            "type": "direct"
+      ],
+      "tls": {
+        "enabled": true,
+        "server_name": "www.tesla.com", // 要偷的域名
+        "reality": {
+          "enabled": true,
+          "handshake": {
+            "server": "www.tesla.com", // 要偷的域名
+            "server_port": 443
+          },
+          "private_key": "wFGFSx-bnVbw6Z2AHArpVVk0dw21FBT_CzbFN9hvoW8", // 执行 sing-box generate reality-keypair 生成,填Private key的值,客户端填public key的值
+          "short_id": [
+            "ccda29d7777fbb0b"  // 执行 sing-box generate rand 8 --hex 生成
+          ]
         }
-    ]
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "misakacloud" // grpc路径
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "direct"
+    }
+  ]
 }
