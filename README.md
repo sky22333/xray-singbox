@@ -1,7 +1,5 @@
 # xray与sing-box
 
-
-
 ### Docker运行xray
 
 创建配置文件
@@ -27,7 +25,7 @@ docker run -d \
 ### 脚本安装xray
 
 ```
-bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install --version v1.8.24
+bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install
 ```
 
 - 完全卸载
@@ -51,10 +49,10 @@ bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release
 
 访问 Xray-core 的 GitHub 发布页面  https://github.com/XTLS/Xray-core/releases
 
-下载```Xray-linux-64.zip```文件
+下载`Xray-linux-64.zip`文件
 
 ####  2. 解压文件
-解压下载的文件到```/usr/local/bin```目录：
+解压下载的文件到`/usr/local/bin`目录：
 
 ```
 cd /usr/local/bin
@@ -62,7 +60,7 @@ cd /usr/local/bin
 ```
 sudo unzip Xray-linux-64.zip -d /usr/local/bin
 ```
-确保 /usr/local/bin 在您的 PATH 环境变量中。
+确保 `/usr/local/bin` 在您的 PATH 环境变量中。
 
 ####  3. 赋予执行权限
 赋予 Xray 可执行文件执行权限：
