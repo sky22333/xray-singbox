@@ -6,7 +6,7 @@
     "servers": [
       {
         "tag": "google",
-        "address": "tls://8.8.8.8"
+        "address": "8.8.8.8"
       }
     ]
   },
@@ -26,29 +26,12 @@
   ],
   "outbounds": [
     {
-      "type": "vless",
-      "tag": "proxy",
+      "type": "shadowsocks",
+      "tag": "ss-out",
       "server": "123.123.123.123",
-      "server_port": 8443,
-      "uuid": "xxxxxxxxxxxxxxxxxxxxxxxx",
-      "tls": {
-        "enabled": true,
-        "server_name": "tesla.com",
-        "insecure": false,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "oRqSBt0HvQUYxnBcSc6SZ1Ta-NzGWn9-PiTE58cH-z0",
-          "short_id": "80dad223"
-        }
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": ""
-      }
+      "server_port": 9527,
+      "method": "aes-256-gcm",
+      "password": "xxxxxxxxxxxxxxxxxxxxxxxxx"
     },
     {
       "type": "direct",
@@ -68,17 +51,13 @@
       },
       {
         "ip_version": 6,
-        "outbound": "proxy"
+        "outbound": "ss-out" // IPV6走代理，需要节点有IPV6
       },
       {
         "inbound": ["tun-in"],
         "network": "tcp",
         "port": [22],
         "outbound": "direct"
-      },
-      {
-        "geoip": ["private"],
-        "outbound": "proxy"
       },
       {
         "ip_cidr": [
@@ -89,6 +68,6 @@
         "outbound": "direct"
       }
     ],
-    "final": "proxy"
+    "final": "ss-out"
   }
 }
