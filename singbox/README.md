@@ -3,7 +3,7 @@
 bash <(curl -Ls https://raw.githubusercontent.com/sky22333/xray-singbox/main/singbox/install.sh)
 ```
 
-> 默认安装`1.11.5`版本，脚本结尾支持动态传入版本号，例如：`-v 1.12.0`
+> 默认安装`1.12.10`版本，脚本结尾支持动态传入版本号，例如：`-v 1.12.10`
 
 - 卸载
 
@@ -11,13 +11,6 @@ bash <(curl -Ls https://raw.githubusercontent.com/sky22333/xray-singbox/main/sin
 dpkg --purge sing-box
 rm -rf /etc/sing-box
 ```
-
----
-
--  `anytls`协议需要`v1.12.0`版本以上
-
-通过脚本传入`-v 1.12.0`下载
-
 
 ---
 
@@ -59,6 +52,17 @@ docker run -d \
 生成uuid             `cat /proc/sys/kernel/random/uuid`
 
 生成reality-key      `sing-box generate reality-keypair`
+
+
+#### 自签证书
+```
+openssl req -x509 -nodes -newkey ec:<(openssl ecparam -name prime256v1) \
+-keyout /etc/sing-box/key.pem \
+-out /etc/sing-box/cert.pem \
+-subj "/CN=bing.com" \
+-days 3650 && \
+chmod 600 /etc/sing-box/key.pem && chmod 644 /etc/sing-box/cert.pem
+```
 
 ##### [配置文件示例](https://github.com/chika0801/sing-box-examples)   
 

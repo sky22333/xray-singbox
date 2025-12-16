@@ -3,7 +3,7 @@
 set -e -o pipefail
 
 # 默认版本号
-VERSION="1.11.5"
+VERSION="1.12.10"
 
 # 解析命令行参数
 while [[ $# -gt 0 ]]; do

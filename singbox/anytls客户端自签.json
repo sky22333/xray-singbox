@@ -1,0 +1,36 @@
+{
+  "log": {
+    "level": "warn",
+    "timestamp": true
+  },
+  "inbounds": [
+    {
+      "type": "mixed",
+      "tag": "socks",
+      "listen": "127.0.0.1", 
+      "listen_port": 10808 // 本地入站端口
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "anytls",
+      "tag": "anytls-out",
+      "server": "9.9.9.9", // 服务端地址
+      "server_port": 8443,  // 节点端口
+      "password": "aHR0cHM6Ly9ibG9nLjUyMDEzMTIwLnh5ei8=",  // 协议认证密码
+      "tls": {
+        "enabled": true,
+        "insecure": true, // 允许不安全
+        "server_name": "bing.com"  // 自签证书域名
+      }
+    }
+  ],
+  "route": {
+    "rules": [
+      {
+        "inbound": ["socks"],
+        "outbound": "anytls-out"
+      }
+    ]
+  }
+}
