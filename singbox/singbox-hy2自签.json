@@ -1,4 +1,7 @@
 {
+  "log": {
+    "level": "info"
+  },
   "inbounds": [
     {
       "type": "hysteria2",
