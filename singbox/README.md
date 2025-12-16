@@ -18,17 +18,17 @@ rm -rf /etc/sing-box
 
 #### Dokcer安装
 ```
-cd /home && touch config.json
+mkdir -p sing-box && cd sing-box && touch config.json
 ```
 ```
 docker run -d \
   --name sb \
   --network host \
   --restart always \
-  --volume $PWD/:/etc/sing-box/ \
+  --volume ./:/etc/sing-box/ \
   --cap-add NET_ADMIN \
   --device /dev/net/tun \
-  gzxhwq/sing-box:latest
+  gzxhwq/sing-box
 ```
 
 #### 命令
