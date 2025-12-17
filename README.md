@@ -127,12 +127,12 @@ sudo systemctl restart xray
 ##  Reality域名推荐列表
 
 ```
-
 addons.mozilla.org
 s0.awsstatic.com
 d1.awsstatic.com
 images-na.ssl-images-amazon.com
 m.media-amazon.com
+www.amazon.com
 
 player.live-video.net
 one-piece.com
@@ -144,8 +144,13 @@ www.cisco.com
 cdn-dynmedia-1.microsoft.com
 update.microsoft
 www.tesla.com
-www.cloudflare.com
-
+slack.com
+www.ibm.com
+www.ebay.com
+store.steampowered.com
+www.riotgames.com
+www.xbox.com
+www.icloud.com
 ```
 ---
 #####  [更多配置模板](https://github.com/XTLS/Xray-examples)
