@@ -15,8 +15,8 @@ env:
   IMAGE: ghcr.io/daeuniverse/daed:latest
 
 jobs:
-  extract-and-release:
-    name: ${{ matrix.arch }}
+  extract:
+    name: Extract (${{ matrix.arch }})
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -46,25 +46,45 @@ jobs:
           test -f "${OUT}/geoip.dat" && test -f "${OUT}/geosite.dat"
           tar -czvf "${OUT}.tar.gz" "${OUT}"
 
-      - name: Release ${{ matrix.arch }}
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: daed-linux-${{ matrix.arch }}
+          path: daed-linux-${{ matrix.arch }}.tar.gz
+
+  release:
+    name: Release
+    needs: extract
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download artifacts
+        uses: actions/download-artifact@v8
+        with:
+          path: assets
+          merge-multiple: true
+
+      - name: Create Release
         uses: softprops/action-gh-release@v3
         with:
-          tag_name: ${{ inputs.release_tag }}-${{ matrix.arch }}
-          name: daed ${{ inputs.release_tag }} (${{ matrix.arch }})
+          tag_name: ${{ inputs.release_tag }}
+          name: daed ${{ inputs.release_tag }}
           body: |
             版本：`${{ inputs.release_tag }}`
-            架构：`linux/${{ matrix.arch }}`
+            架构：`linux/amd64`、`linux/arm64`
             包含：`daed`、`geoip.dat`、`geosite.dat`
 
             ### 手动运行
             ```bash
-            tar -xzf daed-linux-${{ matrix.arch }}.tar.gz
-            cd daed-linux-${{ matrix.arch }}
+            # amd64 示例（arm64 将包名中的 amd64 换成 arm64）
+            tar -xzf daed-linux-amd64.tar.gz
+            cd daed-linux-amd64
             sudo mkdir -p /usr/local/share/daed /etc/daed
             sudo cp geoip.dat geosite.dat /usr/local/share/daed/
             sudo ./daed run -c /etc/daed
             ```
             面板：`http://本机IP:2023`
-          files: daed-linux-${{ matrix.arch }}.tar.gz
+          files: |
+            assets/daed-linux-amd64.tar.gz
+            assets/daed-linux-arm64.tar.gz
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
