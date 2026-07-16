@@ -24,7 +24,7 @@ print_title() {
 
 ask() {
   local reply
-  printf '%s' "$1"
+  printf '%b' "$1"
   read -r reply
   printf -v "$2" '%s' "$reply"
 }
