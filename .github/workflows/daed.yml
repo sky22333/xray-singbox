@@ -1,0 +1,70 @@
+name: daed 二进制文件
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: "Release Tag（例如 v1.27.0）"
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+env:
+  IMAGE: ghcr.io/daeuniverse/daed:latest
+
+jobs:
+  extract-and-release:
+    name: ${{ matrix.arch }}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - arch: amd64
+            platform: linux/amd64
+          - arch: arm64
+            platform: linux/arm64
+
+    steps:
+      - name: Pull, extract & package
+        env:
+          ARCH: ${{ matrix.arch }}
+          PLATFORM: ${{ matrix.platform }}
+        run: |
+          set -euo pipefail
+          OUT="daed-linux-${ARCH}"
+          mkdir -p "${OUT}"
+
+          docker pull --platform "${PLATFORM}" "${IMAGE}"
+          CID=$(docker create --platform "${PLATFORM}" "${IMAGE}")
+          docker cp "${CID}:/usr/local/bin/daed" "${OUT}/daed"
+          docker cp "${CID}:/usr/local/share/daed/." "${OUT}/"
+          docker rm "${CID}"
+          chmod +x "${OUT}/daed"
+
+          test -f "${OUT}/geoip.dat" && test -f "${OUT}/geosite.dat"
+          tar -czvf "${OUT}.tar.gz" "${OUT}"
+
+      - name: Release ${{ matrix.arch }}
+        uses: softprops/action-gh-release@v3
+        with:
+          tag_name: ${{ inputs.release_tag }}-${{ matrix.arch }}
+          name: daed ${{ inputs.release_tag }} (${{ matrix.arch }})
+          body: |
+            版本：`${{ inputs.release_tag }}`
+            架构：`linux/${{ matrix.arch }}`
+            包含：`daed`、`geoip.dat`、`geosite.dat`
+
+            ### 手动运行
+            ```bash
+            tar -xzf daed-linux-${{ matrix.arch }}.tar.gz
+            cd daed-linux-${{ matrix.arch }}
+            sudo mkdir -p /usr/local/share/daed /etc/daed
+            sudo cp geoip.dat geosite.dat /usr/local/share/daed/
+            sudo ./daed run -c /etc/daed
+            ```
+            面板：`http://本机IP:2023`
+          files: daed-linux-${{ matrix.arch }}.tar.gz
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
