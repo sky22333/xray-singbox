@@ -73,9 +73,8 @@ jobs:
             架构：`linux/amd64`、`linux/arm64`
             包含：`daed`、`geoip.dat`、`geosite.dat`
 
-            ### 手动运行
+            ### 手动运行参考
             ```bash
-            # amd64 示例（arm64 将包名中的 amd64 换成 arm64）
             tar -xzf daed-linux-amd64.tar.gz
             cd daed-linux-amd64
             sudo mkdir -p /usr/local/share/daed /etc/daed
