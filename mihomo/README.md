@@ -26,9 +26,23 @@ bash <(curl -sSL https://cdn.jsdelivr.net/gh/sky22333/shell@main/dev/acme.sh)
 cat /proc/sys/kernel/random/uuid
 ```
 
-#### 其他
+#### 其他用法
 
-前台运行使用`-f`参数指定配置文件即可
+| 参数                           | 解释                 |
+| ---------------------------- | -------------------- |
+| `-age-secret-key <key>`      | 指定 age 密钥，用于解密加密配置   |
+| `-config <string>`           | 使用 Base64 编码的完整配置内容    |
+| `-d <目录>`                    | 指定配置目录               |
+| `-ext-ctl-unix <路径>`         | 覆盖 Unix Socket 控制器地址 |
+| `-ext-ui <目录>`               | 指定外部 Web UI 目录       |
+| `-f <文件>`                    | 指定配置文件路径             |
+| `-m`                         | 启用 geodata 模式        |
+| `-post-down <命令>`            | 网络关闭后自动执行命令或脚本      |
+| `-post-up <命令>`              | 网络启动后自动执行命令或脚本      |
+| `-secret <字符串>`              | 设置 API 访问密钥          |
+| `-t`                         | 测试配置文件是否正确，然后退出      |
+| `-v`                         | 显示 mihomo 版本信息       |
+
 
 ---
 
