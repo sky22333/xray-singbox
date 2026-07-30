@@ -26,6 +26,10 @@ bash <(curl -sSL https://cdn.jsdelivr.net/gh/sky22333/shell@main/dev/acme.sh)
 cat /proc/sys/kernel/random/uuid
 ```
 
+#### 其他
+
+前台运行使用`-f`参数指定配置文件即可
+
 ---
 
 [clash-verge-rev下载地址](https://github.com/clash-verge-rev/clash-verge-rev/releases) (gui客户端)
