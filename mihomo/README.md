@@ -33,7 +33,6 @@ cat /proc/sys/kernel/random/uuid
 | `-age-secret-key <key>`      | 指定 age 密钥，用于解密加密配置   |
 | `-config <string>`           | 使用 Base64 编码的完整配置内容    |
 | `-d <目录>`                    | 指定配置目录               |
-| `-ext-ctl-unix <路径>`         | 覆盖 Unix Socket 控制器地址 |
 | `-ext-ui <目录>`               | 指定外部 Web UI 目录       |
 | `-f <文件>`                    | 指定配置文件路径             |
 | `-m`                         | 启用 geodata 模式        |
